@@ -1,0 +1,740 @@
+{
+  "date": "2026-11-13",
+  "dateLabel": "FRI 13 NOV 2026",
+  "weekLabel": "WEEK OF 9 NOV",
+  "stories": [
+    {
+      "id": "ag2",
+      "section": "Medicine",
+      "date": "11 Nov",
+      "concept": "cell",
+      "title": "AlphaGenome 2 reads DNA variants one cell type at a time",
+      "plain": "DeepMind's new genomics model predicts how a DNA change affects a specific kind of cell, such as a gut immune cell, instead of averaging across a whole tissue. It is open for non-commercial research now.",
+      "eng": "Redesigned architecture conditions each prediction on one tissue, cell type or cell state, including conditions taken from your own single-cell experiment, and carries that condition through the whole network. Adapts to new single-cell data without retraining.",
+      "specs": [
+        [
+          "Training data",
+          "107M+ cell profiles, 68 tissues, human + mouse"
+        ],
+        [
+          "Direction of effect",
+          "43% correct vs 23% for v1"
+        ],
+        [
+          "Expression variants found",
+          "~2× the previous model"
+        ],
+        [
+          "New readout",
+          "DNA methylation"
+        ],
+        [
+          "Access",
+          "API, non-commercial; commercial in private preview"
+        ]
+      ],
+      "why": "It computationally reproduced a known regulatory variant that boosts ETS2 in gut macrophages. It needs more compute than v1, so v1 stays in service. Not validated for clinical use. AlphaGenome 2 Skills for Google Antigravity are coming.",
+      "source": "Google DeepMind blog · 11 Nov",
+      "point": "The point: AI can now predict which DNA typo matters in which cell, which narrows where drug hunters look.",
+      "means": "Your DNA is the same in every cell, but a heart cell and an immune cell read it differently. Most genetic variants linked to disease sit in the regulatory 'switches' around genes, not in the genes themselves, and they often only matter in one cell type. The old model averaged across whole tissues, so a variant that only flips a switch in gut immune cells got washed out. AlphaGenome 2 asks 'what does this variant do in this specific cell?' and gets the direction of the effect right almost twice as often.",
+      "industry": "This is the AlphaFold playbook applied to gene regulation: a foundation model trained on a huge public atlas (here 107M single cells) that turns slow wet-lab screening into a cheap computational first pass. It also shows Google wiring specialist science models into its agent platform, so an agent can call AlphaGenome as a tool.",
+      "you": "The pattern to copy is condition-as-input: one model, conditioned on context, instead of one model per context. And if you work near biotech, this is an API you can call today for research.",
+      "terms": [
+        [
+          "Variant",
+          "A single-letter difference in DNA between people."
+        ],
+        [
+          "Single-cell profile",
+          "A measurement of which genes are active in one individual cell."
+        ],
+        [
+          "Gene regulation",
+          "The switches that turn genes up or down, which differ by cell type."
+        ]
+      ]
+    },
+    {
+      "id": "qc",
+      "section": "Quantum",
+      "date": "10 Nov",
+      "concept": "qalgo",
+      "title": "Claude designed quantum circuits that beat the best known designs",
+      "plain": "Harvard, QuEra and Anthropic had an AI propose quantum circuits, checked every one automatically, and found designs needing fewer gates and fewer qubits on seven of eight core tasks.",
+      "eng": "The LLM writes complete Python programs that describe circuits. An independent classical evaluator verifies correctness and scores space-time cost (T×Q), and an evolutionary loop refines the survivors.",
+      "specs": [
+        [
+          "Model",
+          "Claude Mythos 5"
+        ],
+        [
+          "Space-time cost",
+          "4.1× to 9,100× lower than hand-crafted"
+        ],
+        [
+          "Modular inversion",
+          "17× fewer gates, 53-hour run"
+        ],
+        [
+          "DQI decoder",
+          "~12× cheaper than Google Quantum AI design"
+        ],
+        [
+          "Memory sizing",
+          "19 qubits reserved instead of 665"
+        ]
+      ],
+      "why": "Algorithm cost decides when quantum hardware becomes useful. For scale: human redesigns cut the FeMoco simulation estimate about 150,000× over eight years. The modular-inversion result is relevant to quantum cryptanalysis.",
+      "source": "QuEra press release, Anthropic research · 10 Nov",
+      "point": "The point: AI found shortcuts in quantum algorithms that humans missed, which could make useful quantum computers arrive years sooner.",
+      "means": "Quantum computers will be small and expensive for a long time, so every gate and qubit an algorithm needs is precious. Designing circuits that use fewer of them is slow expert work: humans cut one famous chemistry estimate 150,000× over eight years. Here, Claude wrote candidate circuits as code, a separate program checked each one was correct and measured its cost, and the best survivors were mutated and retried. On 7 of 8 tasks it beat the best published human designs.",
+      "industry": "This is the same 'generate, verify, iterate' loop as the Fermat story, pointed at a different problem. It is evidence that LLMs can do original technical discovery when there is a strict automatic grader, not just recall what is already written.",
+      "you": "Any optimization problem you can score automatically (kernel speed, query cost, bundle size, circuit area) is now a candidate for this loop. The hard engineering is the evaluator, not the prompt.",
+      "terms": [
+        [
+          "Qubit",
+          "The quantum version of a bit; scarce and error-prone today."
+        ],
+        [
+          "Gate / Toffoli gate",
+          "An operation on qubits. Toffoli gates are the expensive ones in error-corrected machines."
+        ],
+        [
+          "Evolutionary search",
+          "Generate many candidates, keep the best, mutate them, repeat."
+        ]
+      ]
+    },
+    {
+      "id": "ibm",
+      "section": "Quantum",
+      "date": "11 Nov",
+      "concept": "hybrid",
+      "title": "IBM Nighthawk r3: 520 qubits, 10,000 operations",
+      "plain": "IBM's next quantum processor is built to run 10,000 operations across 520 qubits. A linked 1,040-qubit system is on the roadmap, with more than 1,000 qubits planned for 2027.",
+      "eng": "IBM Quantum Platform now runs HPC and quantum jobs in one managed environment, with pulse-level control for error-correction research. A co-design rig at Oak Ridge places Nighthawk beside AMD MI355X GPUs for real-time error-correction experiments.",
+      "specs": [
+        [
+          "Qubits",
+          "520 per chip, 1,040 linked"
+        ],
+        [
+          "Target depth",
+          "10,000 operations"
+        ],
+        [
+          "2027 plan",
+          "Beyond 1,000 qubits"
+        ],
+        [
+          "Control",
+          "Pulse-level via IBM Quantum Platform"
+        ],
+        [
+          "QEC testbed",
+          "ORNL Umbra HPC + AMD MI355X"
+        ]
+      ],
+      "why": "The hybrid workflow is the part to watch: quantum circuits scheduled next to classical HPC with shared tooling, which is how error-corrected machines will run in practice.",
+      "source": "IBM Newsroom · 11 Nov",
+      "point": "The point: quantum is being built as a co-processor next to GPUs, not as a standalone computer.",
+      "means": "A qubit count alone means little; what matters is how many operations you can run before errors swamp the result. Nighthawk r3 targets 10,000 operations on 520 qubits, deep enough for real experiments. The bigger shift is the platform: you submit one job that mixes classical HPC and quantum steps, and the classical side corrects quantum errors in real time.",
+      "industry": "Every major player (IBM, AMD, PsiQuantum, Nvidia) is converging on hybrid quantum-classical systems. That makes quantum another accelerator in the data center, the way GPUs became one for AI.",
+      "you": "If you write HPC or ML infrastructure, expect quantum to show up as a scheduler target next to CUDA, not as a separate world. You can try it on IBM Quantum Platform today.",
+      "terms": [
+        [
+          "Circuit depth / operations",
+          "How many steps a quantum program runs before errors make it useless."
+        ],
+        [
+          "Error correction (QEC)",
+          "Using many noisy physical qubits plus fast classical decoding to make one reliable logical qubit."
+        ],
+        [
+          "Pulse-level control",
+          "Programming the raw microwave pulses that drive qubits, below the gate abstraction."
+        ]
+      ]
+    },
+    {
+      "id": "flt",
+      "section": "Agents",
+      "date": "9 Nov",
+      "concept": "swarm",
+      "title": "1,000 agents formalized Fermat's Last Theorem in 30 hours",
+      "plain": "Alongside shipping Claude Fable 5.2 and Mythos 5.2, Anthropic says a team of about 1,000 agents produced a formal, machine-checked version of Fermat's Last Theorem in roughly 30 hours.",
+      "eng": "Formalization means every step is checked by a proof assistant, so the result is verifiable independently of the model. The pattern, many agents against one strict checker, is the same one behind this week's quantum-circuit work.",
+      "specs": [
+        [
+          "Models",
+          "Claude Fable 5.2, Mythos 5.2"
+        ],
+        [
+          "Agents",
+          "~1,000"
+        ],
+        [
+          "Wall clock",
+          "~30 hours"
+        ],
+        [
+          "Released",
+          "9 Nov 2026"
+        ]
+      ],
+      "why": "This is the clearest example yet of what comes after orchestrating a handful of agents: very large teams working against a hard verifier.",
+      "source": "Anthropic · 9 Nov",
+      "point": "The point: a job expected to take human experts years took a swarm of agents about 30 hours, and a computer can check every step.",
+      "means": "Fermat's Last Theorem was proved by Andrew Wiles in 1994; the proof runs over 100 pages and leans on decades of other mathematics. 'Formalizing' it means rewriting every step in a proof language like Lean, where software checks that each line follows logically. No human has to trust it. A human-led Lean project to do this started in 2024 and was planned to run for years. Anthropic reports about 1,000 agents dividing the work and finishing in around 30 hours.",
+      "industry": "This is the clearest answer yet to 'what comes after multi-agent orchestration'. Instead of a manager agent coordinating five workers, you run a thousand agents in parallel against a verifier that rejects anything wrong. Scale stops being limited by how much you trust each agent, because the checker does the trusting. Expect the same setup wherever a hard checker exists: code with test suites, chip design, legal citation checking, math.",
+      "you": "Your test suite, type checker and CI are the verifier. The more of your codebase that is covered by fast, strict automated checks, the more of it can be handed to large agent teams. Investing in evals and tests is now investing in AI throughput.",
+      "terms": [
+        [
+          "Formalization",
+          "Translating a human proof into machine-checkable logic."
+        ],
+        [
+          "Lean",
+          "A programming language and proof assistant used for formal math."
+        ],
+        [
+          "Verifier",
+          "An automatic checker that says pass or fail with no judgment involved."
+        ]
+      ]
+    },
+    {
+      "id": "mem",
+      "section": "ML research",
+      "date": "Nov",
+      "concept": "memory",
+      "title": "A three-part memory architecture for agents",
+      "plain": "Anthropic researchers published a design that splits agent memory into three parts, and it substantially improved how well a model keeps learning across tasks.",
+      "eng": "Reported lift on CL-Bench for Opus 5.5 from 0.644 to 0.833. It adds persistent, updatable memory on top of context engineering, aimed at continual learning without catastrophic forgetting.",
+      "specs": [
+        [
+          "Benchmark",
+          "CL-Bench"
+        ],
+        [
+          "Opus 5.5 baseline",
+          "0.644"
+        ],
+        [
+          "With architecture",
+          "0.833"
+        ],
+        [
+          "Target problem",
+          "Learning new skills without retraining"
+        ]
+      ],
+      "why": "Continual learning is one of the research threads lab leaders name as the next big gain after scaling.",
+      "source": "Anthropic Research · Nov",
+      "point": "The point: agents are starting to learn on the job instead of forgetting everything when the context window resets.",
+      "means": "Today's models are frozen after training. An agent 'remembers' only what fits in its context window or what you stuff into a vector database. Retraining to teach it something new is expensive and tends to erase old skills (called catastrophic forgetting). This research splits agent memory into three parts so it can keep new skills persistently, and the model's score on a continual-learning benchmark rose from 0.644 to 0.833.",
+      "industry": "Lab leaders including Demis Hassabis name continual learning as one of the next big gains now that scaling alone is slowing. An agent that improves with use is a different product from one that is equally good on day 1 and day 300.",
+      "you": "Expect memory to become a first-class layer in agent stacks, alongside prompts and tools. Design now for memory you can inspect, edit and roll back; provenance of what an agent learned will matter for debugging and compliance.",
+      "terms": [
+        [
+          "Context window",
+          "The text a model can see at once; wiped between sessions."
+        ],
+        [
+          "Catastrophic forgetting",
+          "When training on new data erases previously learned skills."
+        ],
+        [
+          "CL-Bench",
+          "A benchmark for how well models keep learning across tasks."
+        ]
+      ]
+    },
+    {
+      "id": "suit",
+      "section": "Ethics",
+      "date": "12 Nov",
+      "concept": null,
+      "title": "Nonprofits ask a court to halt frontier AI development",
+      "plain": "Four nonprofits sued Anthropic, Google, Meta, OpenAI and SpaceX's AI unit in San Francisco, asking a judge to stop work on models more capable than today's frontier systems.",
+      "eng": "The legal theory is California's Unfair Competition Law, not a new AI statute. Plaintiffs cite the companies' own leaders' warnings about catastrophic risk. Filed by Irreplaceable Education Fund, Public Citizen, Heat Initiative and Alliance for Secure AI.",
+      "specs": [
+        [
+          "Filed",
+          "12 Nov 2026, SF Superior Court"
+        ],
+        [
+          "Defendants",
+          "Anthropic, Google, Meta, OpenAI, SpaceX AI"
+        ],
+        [
+          "Relief sought",
+          "Injunction above current frontier"
+        ],
+        [
+          "Basis",
+          "CA Unfair Competition Law"
+        ]
+      ],
+      "why": "Since 18 September, three of these labs have become defendants both in a suit calling coordinated slowdowns illegal and in this one calling continued development illegal.",
+      "source": "Court filing coverage · 12 Nov",
+      "point": "The point: if courts treat 'building smarter AI' as an unfair business practice, frontier labs could face injunctions without any new AI law.",
+      "means": "Four advocacy groups are using California's general consumer-protection law to argue that labs whose own CEOs say AI could be catastrophic should not keep making it more capable. They want a court order freezing models above today's frontier. Separately, the same labs are being sued for the opposite: that agreeing to slow down together is illegal collusion.",
+      "industry": "The labs are squeezed between 'slowing down together is anticompetitive' and 'not slowing down is unsafe'. Even if this suit fails, it signals that litigation, not legislation, is where AI limits may get set in the US first.",
+      "you": "Low direct impact on your day-to-day. Worth tracking if you depend on a single frontier provider: legal risk is now part of vendor risk.",
+      "terms": [
+        [
+          "Injunction",
+          "A court order to stop doing something."
+        ],
+        [
+          "Unfair Competition Law",
+          "A broad California statute against unlawful or unfair business practices."
+        ],
+        [
+          "Frontier model",
+          "The most capable models from the leading labs."
+        ]
+      ]
+    },
+    {
+      "id": "rules",
+      "section": "Rules",
+      "date": "11 Nov",
+      "concept": null,
+      "title": "Japan weighs binding orders for advanced AI developers",
+      "plain": "Japan, which has relied on voluntary guidelines, is considering powers to issue binding orders and penalties to companies behind advanced AI that ignore safety rules.",
+      "eng": "Proposals surfaced at the 11 Nov meeting of a working group on AI legal systems, first convened 28 Oct. Also this week: an EU consumer proposal would require AI shopping agents to let users control purchases.",
+      "specs": [
+        [
+          "Japan",
+          "Binding orders under discussion"
+        ],
+        [
+          "EU",
+          "Shopping agents must let users control purchases (proposal)"
+        ],
+        [
+          "EU AI Act",
+          "Prohibitions + Art. 50(2) deadline, 2 Dec"
+        ],
+        [
+          "California SB 574",
+          "Lawyers answer for AI output, from 1 Jan 2027"
+        ]
+      ],
+      "why": "Rules are starting to target agents directly. If you ship agents that transact, purchase-confirmation UX may become a compliance requirement in the EU.",
+      "source": "MLex, Crypto Briefing · 11–12 Nov",
+      "point": "The point: regulation is starting to name agents specifically, especially agents that spend money.",
+      "means": "Japan has regulated AI by guidelines that companies could ignore. It is now considering powers to issue binding orders to developers of advanced AI. In the EU, a consumer proposal says AI shopping agents must leave users in control of purchases, so an agent cannot buy without the user's sign-off. The EU AI Act's next deadlines hit on 2 December.",
+      "industry": "The first wave of AI rules targeted models and content. The second wave targets actions: what an agent can do on your behalf. That changes product design, not just legal paperwork.",
+      "you": "If you build agents that transact, book or send, build explicit confirmation steps, spending limits and audit logs now. They are likely to become requirements, and they are good engineering anyway.",
+      "terms": [
+        [
+          "Soft law",
+          "Voluntary guidance with no penalties."
+        ],
+        [
+          "Article 50",
+          "The EU AI Act’s transparency rules, such as labelling AI-generated content."
+        ],
+        [
+          "Human-in-the-loop",
+          "A person must approve before the system acts."
+        ]
+      ]
+    },
+    {
+      "id": "robots",
+      "section": "Robots",
+      "date": "9 Nov",
+      "concept": "humanoid",
+      "title": "Humanoids took the stage at Web Summit, as speakers",
+      "plain": "Nine AgiBot humanoids opened Web Summit in Lisbon with a synchronised routine, and for the first time humanoid robots appeared as official speakers.",
+      "eng": "The more practical exhibit was Galbot's wheeled, two-armed robot for shops, pharmacies and factories. Separately, Agility (maker of Digit) began trading on Nasdaq as AGLT on 5 Nov after its SPAC merger.",
+      "specs": [
+        [
+          "Event",
+          "Web Summit 2026, opened 9 Nov"
+        ],
+        [
+          "Demo",
+          "9 AgiBot humanoids"
+        ],
+        [
+          "Notable",
+          "Galbot wheeled dual-arm robot"
+        ],
+        [
+          "Listing",
+          "Agility, Nasdaq: AGLT, 5 Nov"
+        ]
+      ],
+      "why": "AGLT joins UBTech, Unitree and Rainbow Robotics as a publicly traded humanoid maker.",
+      "source": "Euronews · 13 Nov",
+      "point": "The point: humanoids are now a public-market asset class, and the useful robots are often not humanoid.",
+      "means": "The dancing robots got the headlines, but the more telling exhibit was Galbot's wheeled, two-armed robot: no legs, built for shelves and pharmacies. Legs are hard and expensive; wheels plus good arms cover most indoor work. Meanwhile Agility, maker of the Digit warehouse humanoid, went public on Nasdaq.",
+      "industry": "Robotics is where AI models leave the screen. The bottleneck is no longer the body but the 'brain': models that understand physics and can handle unfamiliar objects, which is why world models are a hot research area.",
+      "you": "If you're curious about physical AI, the software stack (simulation, vision-language-action models, Nvidia Isaac) is where most engineering demand is.",
+      "terms": [
+        [
+          "Humanoid",
+          "A robot with a roughly human body plan."
+        ],
+        [
+          "Physical AI",
+          "AI that perceives and acts in the real world."
+        ],
+        [
+          "SPAC",
+          "A shell company used to take a startup public faster than a traditional IPO."
+        ]
+      ]
+    },
+    {
+      "id": "capital",
+      "section": "Corporate",
+      "date": "12 Nov",
+      "concept": "hybrid",
+      "title": "AMD and Salesforce put money into quantum + AI",
+      "plain": "AMD plans an equity stake in photonic quantum company PsiQuantum, and Q-CTRL raised $290M led by Salesforce Ventures. Both deals are pitched on combining quantum, HPC and AI.",
+      "eng": "The PsiQuantum partnership expands from FPGAs to Instinct GPUs and EPYC CPUs for fault-tolerant system co-design, with early work running drug-discovery molecular simulations on AMD GPUs. Technical roadmap at SC26, Chicago, 15–20 Nov.",
+      "specs": [
+        [
+          "AMD → PsiQuantum",
+          "Equity, amount undisclosed"
+        ],
+        [
+          "Q-CTRL Series C",
+          "US$290M, Salesforce Ventures"
+        ],
+        [
+          "Next",
+          "SC26 Chicago, 15–20 Nov"
+        ]
+      ],
+      "why": "Watch SC26 for the decoder details. A related preprint covers machine-learning decoders for fusion-based quantum computing in real time.",
+      "source": "HPCwire, Reuters · 12 Nov",
+      "point": "The point: chip makers and enterprise software companies are betting that quantum will be sold as part of AI infrastructure.",
+      "means": "AMD is taking an ownership stake in PsiQuantum, which builds quantum computers from photons on silicon chips, to co-design the classical hardware that controls and error-corrects them. Q-CTRL, which makes software that reduces quantum errors, raised $290M led by Salesforce's venture arm. Both are pitched as quantum + HPC + AI, not quantum alone.",
+      "industry": "Money follows the hybrid thesis from the IBM story. Nvidia, AMD and IBM all want to own the classical side of quantum, the same way Nvidia owned the AI training stack.",
+      "you": "Watch SC26 next week (15 to 20 Nov) for the technical roadmap. If you work in HPC, quantum-control and decoder work is an emerging niche.",
+      "terms": [
+        [
+          "Photonic quantum computing",
+          "Using particles of light as qubits."
+        ],
+        [
+          "Decoder",
+          "The classical software that spots and corrects quantum errors in real time."
+        ],
+        [
+          "Series C",
+          "A later-stage venture funding round."
+        ]
+      ]
+    },
+    {
+      "id": "ipo",
+      "section": "Corporate",
+      "date": "10 Nov",
+      "concept": null,
+      "title": "Anthropic's IPO could price the week of 16 November",
+      "plain": "Anthropic may begin marketing its IPO this week, with a Nasdaq debut possible before Thanksgiving. It would be the largest AI listing so far.",
+      "eng": "Amended S-1: Q3 revenue $16.96B, up from $11.56B in Q2, which is 47% sequential growth, down from 144%. Annualized run rate is about $67.8B against a reported $1.1T–$1.3T valuation range.",
+      "specs": [
+        [
+          "Q3 revenue",
+          "$16.96B"
+        ],
+        [
+          "QoQ growth",
+          "47% (Q2: 144%)"
+        ],
+        [
+          "Annualized",
+          "~$67.8B"
+        ],
+        [
+          "Target window",
+          "Week of 16 Nov"
+        ]
+      ],
+      "why": "OpenAI is expected to follow, so Anthropic's pricing may set the template for private AI valuations.",
+      "source": "Investing.com, Bloomberg · 10 Nov",
+      "point": "The point: Anthropic's IPO will set the price tag for the whole AI industry, including OpenAI's expected listing.",
+      "means": "Anthropic made about $17B in Q3, but growth slowed from 144% quarter-on-quarter to 47%. At a $1.1T to $1.3T valuation, investors would pay roughly 16 to 19 times annual revenue. That is a bet that AI revenue keeps compounding for years.",
+      "industry": "Public markets will now judge AI labs every quarter. Slowing growth or rising compute costs will move prices, which affects how much labs can spend on training and how they price APIs.",
+      "you": "API pricing and rate limits are tied to these economics. A public Anthropic will publish detailed numbers each quarter, which tells you where pricing is heading.",
+      "terms": [
+        [
+          "S-1",
+          "The filing a company makes before going public, with its financials."
+        ],
+        [
+          "Run rate",
+          "Current revenue extrapolated to a full year."
+        ],
+        [
+          "Sequential growth",
+          "Growth from one quarter to the next."
+        ]
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "swarm",
+      "name": "Agent swarms at 1,000+",
+      "stage": 1,
+      "desc": "What comes after orchestrating a few agents: very large teams of agents working against a strict verifier.",
+      "signals": [
+        [
+          "9 Nov",
+          "~1,000 Claude agents formalize Fermat's Last Theorem in about 30 hours."
+        ],
+        [
+          "10 Nov",
+          "LLM proposals plus an automated evaluator beat best known quantum circuits on 7 of 8 tasks."
+        ]
+      ]
+    },
+    {
+      "id": "memory",
+      "name": "Agent memory and continual learning",
+      "stage": 1,
+      "desc": "Agents that learn new skills after deployment without retraining and without forgetting old ones.",
+      "signals": [
+        [
+          "Nov",
+          "Three-part agent memory architecture lifts Opus 5.5 on CL-Bench from 0.644 to 0.833."
+        ]
+      ]
+    },
+    {
+      "id": "world",
+      "name": "Continual world models",
+      "stage": 0,
+      "desc": "Models that learn physics and causality from observation and keep updating after training. The bridge from text to physical tasks.",
+      "signals": [
+        [
+          "Dec",
+          "NeurIPS 2026 runs a dedicated Continual World Models workshop, with papers on test-time adaptation and multi-agent world models."
+        ]
+      ]
+    },
+    {
+      "id": "qalgo",
+      "name": "AI-discovered quantum algorithms",
+      "stage": 0,
+      "desc": "Using LLM search to cut the gate and qubit cost of quantum algorithms, moving the date quantum becomes useful.",
+      "signals": [
+        [
+          "10 Nov",
+          "QuEra, Harvard and Anthropic publicise AI-designed circuits with up to 9,100× lower space-time cost."
+        ],
+        [
+          "Oct",
+          "Preprint: modular inversion circuit with 17× fewer gates after a 53-hour run."
+        ]
+      ]
+    },
+    {
+      "id": "hybrid",
+      "name": "Quantum–classical hybrid compute",
+      "stage": 1,
+      "desc": "Quantum processors scheduled next to GPUs and CPUs in one environment, mainly for real-time error correction.",
+      "signals": [
+        [
+          "12 Nov",
+          "AMD plans an equity stake in PsiQuantum to co-design fault-tolerant infrastructure."
+        ],
+        [
+          "12 Nov",
+          "Cleveland Clinic, RIKEN and IBM pass 12,000 atoms in quantum-classical drug binding simulation."
+        ],
+        [
+          "11 Nov",
+          "IBM Quantum Platform unifies HPC and quantum in a managed environment."
+        ]
+      ]
+    },
+    {
+      "id": "cell",
+      "name": "Cell-state foundation models",
+      "stage": 1,
+      "desc": "Biology models that predict effects per cell type and state, not per tissue average.",
+      "signals": [
+        [
+          "11 Nov",
+          "AlphaGenome 2 released: 107M+ cell profiles, direction-of-effect accuracy 43%."
+        ]
+      ]
+    },
+    {
+      "id": "humanoid",
+      "name": "Humanoids in commercial work",
+      "stage": 2,
+      "desc": "Robots moving from demos into shops, pharmacies, warehouses and public markets.",
+      "signals": [
+        [
+          "9 Nov",
+          "Galbot shows a wheeled, two-armed robot for retail and factory tasks at Web Summit."
+        ],
+        [
+          "5 Nov",
+          "Agility begins trading on Nasdaq as AGLT."
+        ]
+      ]
+    }
+  ],
+  "eras": [
+    {
+      "id": "llm",
+      "when": "2018–22",
+      "name": "Large language models",
+      "short": "Models trained to predict the next word turn out to write, translate and code.",
+      "how": "A transformer is trained on a large share of the public internet to predict the next token. Capabilities appear with scale: GPT-3 could do tasks it was never trained for, given a few examples in the prompt.",
+      "built": "Autocomplete, text generation APIs, early GitHub Copilot.",
+      "broke": "Raw models ramble, make things up and do not follow instructions reliably.",
+      "marks": "GPT-2 (2019), GPT-3 (2020), Copilot (2021)"
+    },
+    {
+      "id": "chat",
+      "when": "2022–23",
+      "name": "Chatbots",
+      "short": "Instruction tuning and human feedback make models useful in a conversation.",
+      "how": "Fine-tune the base model on examples of good answers, then use reinforcement learning from human feedback (RLHF) so it prefers helpful, safe replies.",
+      "built": "Chat interfaces, customer support bots, writing assistants.",
+      "broke": "The model only knows its training data and cannot look anything up or do anything.",
+      "marks": "ChatGPT (Nov 2022), GPT-4, Claude (2023)"
+    },
+    {
+      "id": "rag",
+      "when": "2023–24",
+      "name": "RAG and tool use",
+      "short": "Models get access to your documents and to APIs.",
+      "how": "Retrieval-augmented generation fetches relevant documents and pastes them into the prompt. Function calling lets the model output a structured call to an API you define.",
+      "built": "Chat-with-your-docs, vector databases, plugins.",
+      "broke": "One question, one answer. Multi-step tasks still needed a human driving every step.",
+      "marks": "Function calling (Jun 2023), vector DB boom"
+    },
+    {
+      "id": "flow",
+      "when": "2024",
+      "name": "Workflows",
+      "short": "Engineers chain model calls into fixed pipelines.",
+      "how": "You write the steps in code: classify, then retrieve, then draft, then check. The model fills in each step, but the control flow is yours.",
+      "built": "Document processing pipelines, LangChain-style chains, eval harnesses.",
+      "broke": "Fixed pipelines break on anything you did not anticipate. Real tasks need the system to decide what to do next.",
+      "marks": "LangChain, LlamaIndex, prompt chaining"
+    },
+    {
+      "id": "agent",
+      "when": "2024–25",
+      "name": "Agents",
+      "short": "The model decides the next step itself, in a loop with tools.",
+      "how": "A loop: the model looks at the goal and results so far, picks a tool, runs it, reads the output, repeats until done. Reasoning models that think before answering made these loops far more reliable.",
+      "built": "Coding agents, computer-use agents, MCP servers that expose tools to any agent.",
+      "broke": "Agents worked for minutes, then drifted, looped or lost track on long tasks.",
+      "marks": "o1 reasoning (Sep 2024), Computer use (Oct 2024), MCP (Nov 2024)"
+    },
+    {
+      "id": "auto",
+      "when": "2025–26",
+      "name": "Autonomous agents",
+      "short": "Agents run for hours on real work in sandboxes, with little supervision.",
+      "how": "Better long-horizon training, sandboxed environments, checkpoints and the ability to run tests let an agent own a whole task: open the repo, make the change, run CI, open a pull request.",
+      "built": "Claude Code, Codex, Antigravity; agents opening PRs while you sleep.",
+      "broke": "One agent is one thread of work. Large problems need many in parallel.",
+      "marks": "Claude Code, Codex, Google Antigravity (Nov 2025)"
+    },
+    {
+      "id": "multi",
+      "when": "2026",
+      "name": "Multi-agent orchestration",
+      "short": "A planner agent splits work across specialist agents.",
+      "how": "An orchestrator breaks a goal into subtasks, hands them to worker agents with different tools or prompts, and merges the results.",
+      "built": "Agent teams for research, code migration and analysis; orchestration frameworks.",
+      "broke": "Coordination overhead grows fast, and someone still has to check every worker’s output.",
+      "marks": "Antigravity 2.0 agent manager, agent-team frameworks"
+    },
+    {
+      "id": "swarm",
+      "when": "Now",
+      "name": "Agent swarms with verifiers",
+      "short": "Hundreds to thousands of agents work against an automatic checker that accepts only correct results.",
+      "how": "Instead of trusting agents, you trust the verifier: a proof checker, test suite or simulator. Agents propose, the verifier filters, survivors get refined. Memory layers start letting agents keep what they learn.",
+      "built": "1,000-agent formal proof of Fermat in ~30h; AI-designed quantum circuits beating human designs.",
+      "broke": "Still open: it only works where a strict automatic check exists.",
+      "marks": "Fermat formalization (9 Nov 2026), AI quantum circuits (10 Nov 2026)"
+    },
+    {
+      "id": "next",
+      "when": "Next",
+      "name": "World models and continual learning",
+      "short": "Contenders for what comes next: models that learn physics from observation and keep learning after deployment.",
+      "how": "World models simulate how an environment will change when you act, which lets agents plan in the physical world. Continual learning updates the model from experience without retraining from scratch.",
+      "built": "Research prototypes, robotics simulation, NeurIPS 2026 workshops.",
+      "broke": "Not yet reliable outside labs. Watch Frontier for signals.",
+      "marks": "Genie, V-JEPA, Continual World Models workshop (NeurIPS 2026)"
+    }
+  ],
+  "weeks": [
+    {
+      "label": "Week of 9 Nov 2026",
+      "shifts": [
+        [
+          "up",
+          "Swarms + verifiers",
+          "Two independent results this week (Fermat, quantum circuits) used the same pattern. Strongest signal yet that this is the current era."
+        ],
+        [
+          "up",
+          "AI for science",
+          "AlphaGenome 2 and the quantum-circuit work show models producing new results, not summaries."
+        ],
+        [
+          "up",
+          "Hybrid quantum",
+          "IBM, AMD–PsiQuantum and Q-CTRL all pitched quantum as part of AI and HPC infrastructure."
+        ],
+        [
+          "new",
+          "Rules aimed at agents",
+          "EU proposal on shopping agents; Japan weighs binding orders."
+        ],
+        [
+          "watch",
+          "Litigation as regulation",
+          "Suit seeking to freeze frontier development."
+        ]
+      ]
+    },
+    {
+      "label": "Week of 2 Nov 2026",
+      "shifts": [
+        [
+          "up",
+          "Autonomous coding agents",
+          "Anthropic’s S-1/A describes Claude Code as an agent that plans, writes, tests and debugs; Antigravity 2.0 ships a standalone agent manager."
+        ],
+        [
+          "up",
+          "Humanoids go public",
+          "Agility begins trading on Nasdaq as AGLT."
+        ],
+        [
+          "up",
+          "Quantum + HPC",
+          "IBM Nighthawk anchors a new algorithm center in Chicago, beside a GPU error-correction testbed."
+        ],
+        [
+          "watch",
+          "US federal AI rules",
+          "After the midterms, lawmakers prepare bills on model testing and liability."
+        ]
+      ]
+    }
+  ]
+}
