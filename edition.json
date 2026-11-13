@@ -4,482 +4,498 @@
   "weekLabel": "WEEK OF 9 NOV",
   "stories": [
     {
-      "id": "ag2",
-      "section": "Medicine",
-      "date": "11 Nov",
-      "concept": "cell",
-      "title": "AlphaGenome 2 reads DNA variants one cell type at a time",
-      "plain": "DeepMind's new genomics model predicts how a DNA change affects a specific kind of cell, such as a gut immune cell, instead of averaging across a whole tissue. It is open for non-commercial research now.",
-      "eng": "Redesigned architecture conditions each prediction on one tissue, cell type or cell state, including conditions taken from your own single-cell experiment, and carries that condition through the whole network. Adapts to new single-cell data without retraining.",
-      "specs": [
-        [
-          "Training data",
-          "107M+ cell profiles, 68 tissues, human + mouse"
-        ],
-        [
-          "Direction of effect",
-          "43% correct vs 23% for v1"
-        ],
-        [
-          "Expression variants found",
-          "~2× the previous model"
-        ],
-        [
-          "New readout",
-          "DNA methylation"
-        ],
-        [
-          "Access",
-          "API, non-commercial; commercial in private preview"
-        ]
-      ],
-      "why": "It computationally reproduced a known regulatory variant that boosts ETS2 in gut macrophages. It needs more compute than v1, so v1 stays in service. Not validated for clinical use. AlphaGenome 2 Skills for Google Antigravity are coming.",
-      "source": "Google DeepMind blog · 11 Nov",
-      "point": "The point: AI can now predict which DNA typo matters in which cell, which narrows where drug hunters look.",
-      "means": "Your DNA is the same in every cell, but a heart cell and an immune cell read it differently. Most genetic variants linked to disease sit in the regulatory 'switches' around genes, not in the genes themselves, and they often only matter in one cell type. The old model averaged across whole tissues, so a variant that only flips a switch in gut immune cells got washed out. AlphaGenome 2 asks 'what does this variant do in this specific cell?' and gets the direction of the effect right almost twice as often.",
-      "industry": "This is the AlphaFold playbook applied to gene regulation: a foundation model trained on a huge public atlas (here 107M single cells) that turns slow wet-lab screening into a cheap computational first pass. It also shows Google wiring specialist science models into its agent platform, so an agent can call AlphaGenome as a tool.",
-      "you": "The pattern to copy is condition-as-input: one model, conditioned on context, instead of one model per context. And if you work near biotech, this is an API you can call today for research.",
-      "terms": [
-        [
-          "Variant",
-          "A single-letter difference in DNA between people."
-        ],
-        [
-          "Single-cell profile",
-          "A measurement of which genes are active in one individual cell."
-        ],
-        [
-          "Gene regulation",
-          "The switches that turn genes up or down, which differ by cell type."
-        ]
-      ]
-    },
-    {
-      "id": "qc",
-      "section": "Quantum",
-      "date": "10 Nov",
-      "concept": "qalgo",
-      "title": "Claude designed quantum circuits that beat the best known designs",
-      "plain": "Harvard, QuEra and Anthropic had an AI propose quantum circuits, checked every one automatically, and found designs needing fewer gates and fewer qubits on seven of eight core tasks.",
-      "eng": "The LLM writes complete Python programs that describe circuits. An independent classical evaluator verifies correctness and scores space-time cost (T×Q), and an evolutionary loop refines the survivors.",
-      "specs": [
-        [
-          "Model",
-          "Claude Mythos 5"
-        ],
-        [
-          "Space-time cost",
-          "4.1× to 9,100× lower than hand-crafted"
-        ],
-        [
-          "Modular inversion",
-          "17× fewer gates, 53-hour run"
-        ],
-        [
-          "DQI decoder",
-          "~12× cheaper than Google Quantum AI design"
-        ],
-        [
-          "Memory sizing",
-          "19 qubits reserved instead of 665"
-        ]
-      ],
-      "why": "Algorithm cost decides when quantum hardware becomes useful. For scale: human redesigns cut the FeMoco simulation estimate about 150,000× over eight years. The modular-inversion result is relevant to quantum cryptanalysis.",
-      "source": "QuEra press release, Anthropic research · 10 Nov",
-      "point": "The point: AI found shortcuts in quantum algorithms that humans missed, which could make useful quantum computers arrive years sooner.",
-      "means": "Quantum computers will be small and expensive for a long time, so every gate and qubit an algorithm needs is precious. Designing circuits that use fewer of them is slow expert work: humans cut one famous chemistry estimate 150,000× over eight years. Here, Claude wrote candidate circuits as code, a separate program checked each one was correct and measured its cost, and the best survivors were mutated and retried. On 7 of 8 tasks it beat the best published human designs.",
-      "industry": "This is the same 'generate, verify, iterate' loop as the Fermat story, pointed at a different problem. It is evidence that LLMs can do original technical discovery when there is a strict automatic grader, not just recall what is already written.",
-      "you": "Any optimization problem you can score automatically (kernel speed, query cost, bundle size, circuit area) is now a candidate for this loop. The hard engineering is the evaluator, not the prompt.",
-      "terms": [
-        [
-          "Qubit",
-          "The quantum version of a bit; scarce and error-prone today."
-        ],
-        [
-          "Gate / Toffoli gate",
-          "An operation on qubits. Toffoli gates are the expensive ones in error-corrected machines."
-        ],
-        [
-          "Evolutionary search",
-          "Generate many candidates, keep the best, mutate them, repeat."
-        ]
-      ]
-    },
-    {
-      "id": "ibm",
-      "section": "Quantum",
-      "date": "11 Nov",
-      "concept": "hybrid",
-      "title": "IBM Nighthawk r3: 520 qubits, 10,000 operations",
-      "plain": "IBM's next quantum processor is built to run 10,000 operations across 520 qubits. A linked 1,040-qubit system is on the roadmap, with more than 1,000 qubits planned for 2027.",
-      "eng": "IBM Quantum Platform now runs HPC and quantum jobs in one managed environment, with pulse-level control for error-correction research. A co-design rig at Oak Ridge places Nighthawk beside AMD MI355X GPUs for real-time error-correction experiments.",
-      "specs": [
-        [
-          "Qubits",
-          "520 per chip, 1,040 linked"
-        ],
-        [
-          "Target depth",
-          "10,000 operations"
-        ],
-        [
-          "2027 plan",
-          "Beyond 1,000 qubits"
-        ],
-        [
-          "Control",
-          "Pulse-level via IBM Quantum Platform"
-        ],
-        [
-          "QEC testbed",
-          "ORNL Umbra HPC + AMD MI355X"
-        ]
-      ],
-      "why": "The hybrid workflow is the part to watch: quantum circuits scheduled next to classical HPC with shared tooling, which is how error-corrected machines will run in practice.",
-      "source": "IBM Newsroom · 11 Nov",
-      "point": "The point: quantum is being built as a co-processor next to GPUs, not as a standalone computer.",
-      "means": "A qubit count alone means little; what matters is how many operations you can run before errors swamp the result. Nighthawk r3 targets 10,000 operations on 520 qubits, deep enough for real experiments. The bigger shift is the platform: you submit one job that mixes classical HPC and quantum steps, and the classical side corrects quantum errors in real time.",
-      "industry": "Every major player (IBM, AMD, PsiQuantum, Nvidia) is converging on hybrid quantum-classical systems. That makes quantum another accelerator in the data center, the way GPUs became one for AI.",
-      "you": "If you write HPC or ML infrastructure, expect quantum to show up as a scheduler target next to CUDA, not as a separate world. You can try it on IBM Quantum Platform today.",
-      "terms": [
-        [
-          "Circuit depth / operations",
-          "How many steps a quantum program runs before errors make it useless."
-        ],
-        [
-          "Error correction (QEC)",
-          "Using many noisy physical qubits plus fast classical decoding to make one reliable logical qubit."
-        ],
-        [
-          "Pulse-level control",
-          "Programming the raw microwave pulses that drive qubits, below the gate abstraction."
-        ]
-      ]
-    },
-    {
-      "id": "flt",
+      "id": "alphaproof-signal",
       "section": "Agents",
-      "date": "9 Nov",
-      "concept": "swarm",
-      "title": "1,000 agents formalized Fermat's Last Theorem in 30 hours",
-      "plain": "Alongside shipping Claude Fable 5.2 and Mythos 5.2, Anthropic says a team of about 1,000 agents produced a formal, machine-checked version of Fermat's Last Theorem in roughly 30 hours.",
-      "eng": "Formalization means every step is checked by a proof assistant, so the result is verifiable independently of the model. The pattern, many agents against one strict checker, is the same one behind this week's quantum-circuit work.",
+      "date": "10 Nov",
+      "concept": "verify",
+      "title": "DeepMind agents formally verified Signal's core crypto code",
+      "plain": "Google DeepMind used a team of AI agents to write machine-checked mathematical proofs that the code behind Signal's one-to-one encrypted chats keeps its security promises. The work took about four weeks; comparable verification has historically taken expert teams years.",
+      "eng": "AlphaProof Code is a multi-LLM agentic framework: models translate security goals into formal specifications that human experts review, then agents powered by Gemini Carbon write proofs in the Lean proof assistant, which mechanically checks every step. The proofs cover the compiled code down to machine instructions, not just the protocol design. The agents audited their own output and flagged about 1% of the codebase for a human second look.",
       "specs": [
         [
-          "Models",
-          "Claude Fable 5.2, Mythos 5.2"
+          "Proof size",
+          "Millions of lines of Lean"
         ],
         [
-          "Agents",
-          "~1,000"
+          "Time",
+          "About 4 weeks"
         ],
         [
-          "Wall clock",
-          "~30 hours"
+          "Scope",
+          "1:1 chats: confidentiality, authentication, forward secrecy, post-compromise security"
         ],
         [
-          "Released",
-          "9 Nov 2026"
+          "Human review",
+          "~1% of codebase flagged"
+        ],
+        [
+          "Bug test",
+          "2 reintroduced bugs, both proven insecure"
         ]
       ],
-      "why": "This is the clearest example yet of what comes after orchestrating a handful of agents: very large teams working against a hard verifier.",
-      "source": "Anthropic · 9 Nov",
-      "point": "The point: a job expected to take human experts years took a swarm of agents about 30 hours, and a computer can check every step.",
-      "means": "Fermat's Last Theorem was proved by Andrew Wiles in 1994; the proof runs over 100 pages and leans on decades of other mathematics. 'Formalizing' it means rewriting every step in a proof language like Lean, where software checks that each line follows logically. No human has to trust it. A human-led Lean project to do this started in 2024 and was planned to run for years. Anthropic reports about 1,000 agents dividing the work and finishing in around 30 hours.",
-      "industry": "This is the clearest answer yet to 'what comes after multi-agent orchestration'. Instead of a manager agent coordinating five workers, you run a thousand agents in parallel against a verifier that rejects anything wrong. Scale stops being limited by how much you trust each agent, because the checker does the trusting. Expect the same setup wherever a hard checker exists: code with test suites, chip design, legal citation checking, math.",
-      "you": "Your test suite, type checker and CI are the verifier. The more of your codebase that is covered by fast, strict automated checks, the more of it can be handed to large agent teams. Investing in evals and tests is now investing in AI throughput.",
+      "point": "The point: AI can now do the slow, expensive part of proving software correct, leaving humans to decide what \"correct\" means.",
+      "means": "Formal verification means proving, with math a computer checks, that code meets a precise specification; unlike testing, it covers every possible input. It has been reserved for small, critical systems because writing proofs by hand takes specialists years. Here agents wrote the proofs and Lean rejected any step that did not hold, so a model cannot bluff its way through. To show the system was not rubber-stamping, the team put two old, already-fixed Signal bugs back into an isolated copy, and it produced proofs that both versions were insecure. Group chats, multi-device sync and the full app were not covered, and most of the human effort went into writing the specifications.",
+      "industry": "It is the same pattern as the current era: many agents generate, a strict automatic checker filters. Verification is one of the few places where agent output can be trusted without a human reading every line, which makes it a natural target as AI writes more of the world's code. Google is open-sourcing the specifications and proofs.",
+      "you": "If you own security-critical code, the bottleneck is shifting from writing proofs to writing precise specifications, which is a skill worth learning. The published Lean specs show what a machine-checkable security property looks like. AlphaProof Code itself is not offered as a product yet.",
       "terms": [
         [
-          "Formalization",
-          "Translating a human proof into machine-checkable logic."
+          "Formal verification",
+          "Proving with machine-checked math that code satisfies a specification for all inputs."
         ],
         [
           "Lean",
-          "A programming language and proof assistant used for formal math."
+          "A programming language and proof assistant that checks every logical step of a proof."
         ],
         [
-          "Verifier",
-          "An automatic checker that says pass or fail with no judgment involved."
-        ]
-      ]
-    },
-    {
-      "id": "mem",
-      "section": "ML research",
-      "date": "Nov",
-      "concept": "memory",
-      "title": "A three-part memory architecture for agents",
-      "plain": "Anthropic researchers published a design that splits agent memory into three parts, and it substantially improved how well a model keeps learning across tasks.",
-      "eng": "Reported lift on CL-Bench for Opus 5.5 from 0.644 to 0.833. It adds persistent, updatable memory on top of context engineering, aimed at continual learning without catastrophic forgetting.",
-      "specs": [
-        [
-          "Benchmark",
-          "CL-Bench"
-        ],
-        [
-          "Opus 5.5 baseline",
-          "0.644"
-        ],
-        [
-          "With architecture",
-          "0.833"
-        ],
-        [
-          "Target problem",
-          "Learning new skills without retraining"
+          "Forward secrecy",
+          "If a key leaks today, previously sent messages stay unreadable."
         ]
       ],
-      "why": "Continual learning is one of the research threads lab leaders name as the next big gain after scaling.",
-      "source": "Anthropic Research · Nov",
-      "point": "The point: agents are starting to learn on the job instead of forgetting everything when the context window resets.",
-      "means": "Today's models are frozen after training. An agent 'remembers' only what fits in its context window or what you stuff into a vector database. Retraining to teach it something new is expensive and tends to erase old skills (called catastrophic forgetting). This research splits agent memory into three parts so it can keep new skills persistently, and the model's score on a continual-learning benchmark rose from 0.644 to 0.833.",
-      "industry": "Lab leaders including Demis Hassabis name continual learning as one of the next big gains now that scaling alone is slowing. An agent that improves with use is a different product from one that is equally good on day 1 and day 300.",
-      "you": "Expect memory to become a first-class layer in agent stacks, alongside prompts and tools. Design now for memory you can inspect, edit and roll back; provenance of what an agent learned will matter for debugging and compliance.",
-      "terms": [
-        [
-          "Context window",
-          "The text a model can see at once; wiped between sessions."
-        ],
-        [
-          "Catastrophic forgetting",
-          "When training on new data erases previously learned skills."
-        ],
-        [
-          "CL-Bench",
-          "A benchmark for how well models keep learning across tasks."
-        ]
-      ]
+      "why": "Signal CTO Ehren Kret welcomed the work, saying automated verification gives Signal more confidence in its privacy protections.",
+      "source": "Google DeepMind blog · 10 Nov"
     },
     {
-      "id": "suit",
+      "id": "quantum-lean",
+      "section": "Quantum",
+      "date": "6 Nov",
+      "concept": "qalgo",
+      "title": "Google agent teams design quantum programs proven correct in Lean",
+      "plain": "A Google team built a library of quantum programs inside the Lean proof assistant and let AI agents write new ones against formal specifications. The agents beat previous best results, by up to 290 times on quantum arithmetic.",
+      "eng": "Large quantum programs cannot be run on today's hardware or simulated classically, so the usual generate-and-test loop fails. The team makes both correctness and resource cost provable in Lean: agents write a program to a spec and the proof checker confirms it works and what it costs. Agent teams share results through wikis and hold organized \"conferences\" to exchange ideas.",
+      "specs": [
+        [
+          "Quantum arithmetic",
+          "Up to 290x over prior baselines"
+        ],
+        [
+          "Fusion-relevant simulation",
+          "11x"
+        ],
+        [
+          "Photochemistry / drug metabolism",
+          "8x / 2.5x"
+        ],
+        [
+          "Parallel search",
+          "Up to 1.4x"
+        ],
+        [
+          "Paper",
+          "arXiv 2611.09822, 25 authors"
+        ]
+      ],
+      "point": "The point: proofs can replace experiments when the hardware to test on does not exist yet.",
+      "means": "AI-driven discovery usually works by generating a candidate, running it and keeping what scores best. That breaks for quantum algorithms, because classical computers can only evaluate them on small or restricted instances. Putting programs in Lean turns \"does it work and how much does it cost\" into a question a proof checker answers without running anything. The gains are against prior published constructions; cheaper algorithms bring forward the point at which a given quantum machine is useful for chemistry or fusion problems.",
+      "industry": "This is the second result in a week of AI improving on human-designed quantum circuits, after the QuEra, Harvard and Anthropic work. It also joins AlphaProof Code and the Fermat formalization in using Lean as the verifier for large agent teams. Labs increasingly treat verifiable domains as the place where agents produce new results.",
+      "you": "The wiki-plus-conference setup is a concrete coordination pattern for big agent teams: shared written memory instead of endless chat. If you build agent systems, the lesson is to find or build a checker that scores output without a human. This is a preprint, not yet peer reviewed.",
+      "terms": [
+        [
+          "Formal specification",
+          "A precise, machine-readable statement of what a program must do."
+        ],
+        [
+          "Resource cost",
+          "How many qubits and gates a quantum program needs, which decides whether hardware can run it."
+        ]
+      ],
+      "why": "The authors argue that human and AI work under proof rigor can design algorithms that no current computer can yet test.",
+      "source": "arXiv 2611.09822 (Google) · 6 Nov"
+    },
+    {
+      "id": "gemini-hydrogen",
+      "section": "ML research",
+      "date": "12 Nov",
+      "concept": null,
+      "title": "Gemini 4 Hydrogen: Google's fast, cheap model for agent work",
+      "plain": "Google released Gemini 4 Hydrogen, a faster, cheaper sibling of its frontier Gemini 4 Carbon and Argon models, tuned for coding and agent tasks. Google says it matches Argon on a broad intelligence index at a fraction of the price.",
+      "eng": "It takes 1M input tokens and can emit up to 1M output tokens, with four thinking levels (low, medium, high by default, and a new xhigh) and flat pricing across the full context. In Google's Antigravity, an orchestrator mixing Carbon and Hydrogen reached near-Carbon success on Terminal-Bench 4.0 while using about 24% less quota and finishing about 19% faster.",
+      "specs": [
+        [
+          "Price",
+          "$1.50 in / $7.50 out per M tokens"
+        ],
+        [
+          "Context",
+          "1M in, up to 1M out"
+        ],
+        [
+          "Terminal-Bench 4.1",
+          "57% (3.8 Flash: 18.2%)"
+        ],
+        [
+          "AA Intelligence Index",
+          "51 at high, 54 at xhigh (Argon: 50)"
+        ],
+        [
+          "Speed",
+          "~2.5x faster than 3.8 Flash"
+        ]
+      ],
+      "point": "The point: near-frontier quality at small-model prices makes it cheaper to run many agents, or to route easy steps away from expensive models.",
+      "means": "Labs ship large models for hard reasoning and small fast ones for volume. Agents call a model dozens or hundreds of times per task, so the speed and price of the cheaper model decide what is affordable to automate. Google reports Hydrogen at 51 on Artificial Analysis' index against 50 for Argon, and roughly triple 3.8 Flash's score on Terminal-Bench, a test of completing real tasks in a shell. All figures are Google-reported; independent results will follow.",
+      "industry": "Model routing, mixing a strong planner with a cheap worker, is becoming standard in agent harnesses, and Google published its own mixed-model numbers. Google also led with agent safety figures, such as 2.3x more resilience to indirect prompt injection, which shows where enterprise buyers' worries now sit.",
+      "you": "If you run agents on a frontier model, try routing routine steps (file edits, tool calls, summaries) to Hydrogen and measure cost per completed task. Flat pricing across 1M tokens matters if you load whole repos into context. It is available now in the Gemini API and AI Studio.",
+      "terms": [
+        [
+          "Thinking level",
+          "A setting that trades extra reasoning time and tokens for better answers."
+        ],
+        [
+          "Model routing",
+          "Sending each step of a task to the cheapest model that can handle it."
+        ],
+        [
+          "Terminal-Bench",
+          "A benchmark where models must complete tasks in a real command-line environment."
+        ]
+      ],
+      "why": "Free Gemini app users get Hydrogen through automatic model selection, and it is rolling into Search and Sheets.",
+      "source": "Google blog · 12 Nov"
+    },
+    {
+      "id": "llmon",
+      "section": "ML research",
+      "date": "12 Nov",
+      "concept": "inject",
+      "title": "IBM's LLMON markup trains models to ignore injected instructions",
+      "plain": "IBM released two small experimental Granite models that read LLMON, a new markup that labels every part of a prompt as an instruction, data, a requirement and so on. Trained to follow only the instructions they are told to run, the models resisted prompt-injection attacks far better than models without it.",
+      "eng": "Structure is written with reserved special tokens rather than characters like braces or quotes, so text inside a document cannot fake structure. Each block gets an ID, and an exec block binds an instruction to specific data, like passing arguments to a function. Training re-serialized an instruction-tuning corpus into LLMON with unbound decoy instructions the model must ignore, then ran five GRPO stages and a DPO stage on about 1,000 pairs drawn from the model's own responses to injection attempts.",
+      "specs": [
+        [
+          "Models",
+          "granite-4.1-3b / 8b-llmon-preview"
+        ],
+        [
+          "vs best frontier model (OPI)",
+          "47% more attacks avoided"
+        ],
+        [
+          "vs best open model",
+          "95% more attacks avoided"
+        ],
+        [
+          "General benchmarks",
+          "On par with Granite 4.1 Instruct"
+        ],
+        [
+          "Status",
+          "Experimental, not for production"
+        ]
+      ],
+      "point": "The point: prompt injection may be fixable in the input format and training, not only with filters wrapped around the model.",
+      "means": "Prompt injection works because an LLM sees everything as one stream of text: a web page or email it reads can say \"ignore previous instructions\" and the model may obey. Chat templates separate who is speaking but not what each piece of text is for. LLMON gives the model a typed structure that content cannot forge, and trains it to treat only bound instructions as commands. IBM stresses this is learned behavior, not a guarantee, and adaptive attacks spread over many turns are not yet covered.",
+      "industry": "Injection is the main security blocker for agents that read email, browse or process documents; Gemini 4 Hydrogen's launch the same day also led with injection-resilience numbers. A structural fix that other vendors could adopt would change how agent tools pass data to models. IBM ships converters from JSON and support in its Mellea library.",
+      "you": "If you build RAG or agent pipelines, think of this as parameterized queries versus string concatenation, the fix for SQL injection, applied to prompts. You can test the previews on Hugging Face against your own injection cases, but do not rely on them in production yet.",
+      "terms": [
+        [
+          "Prompt injection",
+          "Malicious instructions hidden in content a model reads, which it then follows."
+        ],
+        [
+          "Special tokens",
+          "Reserved vocabulary entries that normal text cannot produce, used to mark structure."
+        ],
+        [
+          "GRPO / DPO",
+          "Reinforcement and preference-tuning methods used after pretraining to shape behavior."
+        ]
+      ],
+      "why": "Exact robustness percentages appear only in a chart in IBM's post; the relative figures above are IBM's own.",
+      "source": "IBM Granite, Hugging Face blog · 12 Nov"
+    },
+    {
+      "id": "cma-selfhost",
+      "section": "Agents",
+      "date": "12 Nov",
+      "concept": null,
+      "title": "Anthropic lets companies run Claude Managed Agents in-house",
+      "plain": "Anthropic opened a private beta of self-hosted Claude Managed Agents. Companies run the agent server, tool sandboxes and session history on their own infrastructure, while the Claude model still runs at Anthropic or a cloud provider.",
+      "eng": "A cma-server serves the Managed Agents API and runs the agent loop; separate workers execute shell and file tools inside customer sandboxes; agents, sessions and history persist in the customer's PostgreSQL 16+. Model calls go to the Claude API by default, or to Amazon Bedrock, Google Cloud, Microsoft Foundry or a customer-run gateway. Each deployment serves one tenant at one trust level.",
+      "specs": [
+        [
+          "Runs on your infra",
+          "Agent loop, sandboxes, sessions, memory stores"
+        ],
+        [
+          "Database",
+          "PostgreSQL 16 or later"
+        ],
+        [
+          "Model providers",
+          "Claude API, Bedrock, Google Cloud, Foundry, own gateway"
+        ],
+        [
+          "Not included",
+          "Scheduled deployments, dreams, webhooks"
+        ],
+        [
+          "Access",
+          "Private beta via Anthropic account team"
+        ]
+      ],
+      "point": "The point: the agent harness, not just the model, is becoming something enterprises deploy and own, like a database.",
+      "means": "A managed agent service runs the loop that calls the model, executes tools and stores the history. For regulated companies, the sticking point was that this history (code, files, tool outputs) lived on the vendor's servers. Now that part runs in-house. But every model call still sends the full conversation, including tool results, to whichever provider you choose, so it is not air-gapped. Nothing migrates from the hosted service: agents, skills, credentials and memory must be recreated.",
+      "industry": "Agent platforms are splitting into model and harness, and vendors now compete on where the harness runs. Self-hosting answers the data-residency objections that slow enterprise agent adoption while keeping the model as the paid service.",
+      "you": "If compliance blocked hosted agents at your company, this changes the conversation: sandboxes and logs stay inside your perimeter. Budget for the operations work that comes with it: securing the server, retention and deletion (backups and volumes keep copies), and installing each release.",
+      "terms": [
+        [
+          "Agent harness",
+          "The software around a model that runs the loop, calls tools and keeps state."
+        ],
+        [
+          "Sandbox",
+          "An isolated environment where an agent's shell and file commands run."
+        ],
+        [
+          "Single-tenant",
+          "One deployment serves one customer or trust level only."
+        ]
+      ],
+      "why": "Anthropic says it has no remote access to a customer-run server or its logs.",
+      "source": "Unite.AI, Anthropic docs · 12 Nov"
+    },
+    {
+      "id": "ntt-world",
+      "section": "Robots",
+      "date": "11 Nov",
+      "concept": "world",
+      "title": "NTT's world model previews a robot's move before it acts",
+      "plain": "NTT built a model that generates a short video of what will happen for each action a robot is considering, then picks the one least likely to drop or topple things. In a shelf-loading test, success rose from 73.1% to 92.3%.",
+      "eng": "A \"physics control adapter\" added to a video-generation model estimates each object's position, orientation, velocity and mass from video and steps them forward with equations of motion; the result guides the generated video so objects stop vanishing or deforming. Candidate actions from a VLA model or motion planner are each rolled out and scored for collapse, drops and collisions. It is built to run fast enough for existing control loops and outputs the physical quantities behind each prediction.",
+      "specs": [
+        [
+          "Shelf-loading success",
+          "73.1% → 92.3%"
+        ],
+        [
+          "Benchmark",
+          "OBJ3D, better LPIPS than prior methods"
+        ],
+        [
+          "First target",
+          "Airport baggage handling"
+        ],
+        [
+          "Field partner",
+          "Mujin (trials planned, no date)"
+        ],
+        [
+          "Shown at",
+          "NTT R&D Forum 2026, November"
+        ]
+      ],
+      "point": "The point: world models are starting to work as a safety check inside real robot control loops, not just as video demos.",
+      "means": "Video generators can imagine the future but often break physics: boxes melt or vanish mid-clip. That makes them useless for judging whether a stack will hold. NTT forces the imagined future to obey motion equations, so the robot can look ahead for each option and reject risky ones. The 19-point gain comes from a small robot simulating stacking, and NTT did not disclose trial sizes.",
+      "industry": "Learning how the world changes in response to actions is a leading candidate for what comes after text-only agents. This is a concrete industrial use: a verifier for a robot's policy, the same propose-and-check pattern that agent swarms use.",
+      "you": "If you work on robotics or simulation, the design is reusable: keep your policy model and add a predictive checker that scores candidate actions. Exposing physical quantities like mass and velocity makes the checker debuggable, unlike a black-box score.",
+      "terms": [
+        [
+          "World model",
+          "A model that predicts how an environment will change when an agent acts."
+        ],
+        [
+          "VLA model",
+          "Vision-language-action model: turns camera input and instructions into robot motions."
+        ],
+        [
+          "LPIPS",
+          "A metric for how perceptually different two images are; lower is closer."
+        ]
+      ],
+      "why": "Later targets include parcels, warehouses, manufacturing, construction and retail.",
+      "source": "NTT press release · 11 Nov"
+    },
+    {
+      "id": "gemini-glasses",
+      "section": "Gadgets",
+      "date": "12 Nov",
+      "concept": null,
+      "title": "Google and Samsung's Gemini glasses go on preorder from $395",
+      "plain": "Google and Samsung opened preorders for their first Gemini smart glasses, made with Warby Parker and Gentle Monster. Nine styles cost $395 to $489 and ship on 10 December.",
+      "eng": "Each pair weighs about 41 g and uses a Qualcomm Snapdragon AR1 with a 12 MP camera and up to nine hours of battery; it pairs with iPhones and some Pixel and Galaxy phones. Saying \"Hey Gemini\" lets you ask about what you are looking at, with live translation, walking directions, music and calls.",
+      "specs": [
+        [
+          "Price",
+          "$395–$489"
+        ],
+        [
+          "Ships",
+          "10 Dec"
+        ],
+        [
+          "Weight",
+          "~41 g"
+        ],
+        [
+          "Battery",
+          "Up to 9 hours"
+        ],
+        [
+          "Chip / camera",
+          "Snapdragon AR1 / 12 MP"
+        ]
+      ],
+      "point": "The point: multimodal assistants are moving from the phone to a camera on your face, and bystander privacy is now part of the product spec.",
+      "means": "AI glasses are a camera, microphones and speakers wired to a multimodal model: you look at something and ask about it. Meta has dominated, shipping 81% of AI glasses in the first half of the year. Google's version builds in bystander protections: the camera stops if its recording light is covered, and faces are blurred before Gemini sees an image. Buyers must be 18 or older and agree not to film people without permission, or the glasses can be disabled.",
+      "industry": "Glasses are the main hardware bet for always-available AI. They turn low-latency multimodal inference and the privacy of people being filmed into product problems rather than research ones.",
+      "you": "If you build mobile or multimodal apps, plan for a \"what am I looking at\" input mode with short spoken answers. Blurring faces before an image reaches the model is a pattern worth copying in any camera pipeline that calls an LLM.",
+      "terms": [
+        [
+          "Multimodal model",
+          "A model that takes images, audio and text together."
+        ],
+        [
+          "Snapdragon AR1",
+          "Qualcomm's low-power chip designed for camera-equipped smart glasses."
+        ]
+      ],
+      "why": "Warby Parker styles launch in the US only; Gentle Monster styles also go on sale in South Korea.",
+      "source": "The Next Web · 12 Nov"
+    },
+    {
+      "id": "nvidia-ceo",
+      "section": "Corporate",
+      "date": "12 Nov",
+      "concept": null,
+      "title": "Jensen Huang resigns as Nvidia CEO; CFO Colette Kress steps in",
+      "plain": "Nvidia's board said Jensen Huang resigned as CEO, president and director, effective immediately, after 33 years leading the company. CFO Colette Kress is interim CEO while the board looks for a permanent successor.",
+      "eng": "The board's SEC filing gives no reason. It follows reports about Huang's personal relationships and a security investigation; those remain allegations, and Nvidia says it found no evidence that corporate or national-security secrets were compromised. Harvey C. Jones becomes Nvidia's first-ever board chair, and the search covers internal and external candidates.",
+      "specs": [
+        [
+          "Effective",
+          "12 Nov, immediately"
+        ],
+        [
+          "Interim CEO",
+          "Colette Kress (keeps CFO role)"
+        ],
+        [
+          "New chair",
+          "Harvey C. Jones"
+        ],
+        [
+          "Next earnings",
+          "17 Nov (Q3 FY2027)"
+        ],
+        [
+          "Hugging Face deal",
+          "$12.9B, still expected to close in 2027"
+        ]
+      ],
+      "point": "The point: the company supplying most of the world's AI compute just lost the founder who set its strategy, days before earnings.",
+      "means": "Nvidia's GPUs and CUDA software run most AI training and inference, and Huang personally drove its product bets, investments and partnerships. The board says the roadmap and customer commitments continue without interruption. Semafor argues AI companies may no longer count on Nvidia backing the market on the same terms, since Nvidia has invested in many of its own customers, including a stake in Anthropic's IPO private placement.",
+      "industry": "Nvidia is supplier and investor across the AI stack, from cloud providers to labs. Leadership uncertainty could touch deal-making, export-policy talks between the US and China, and pending acquisitions such as Hugging Face.",
+      "you": "Day to day, nothing changes for CUDA, drivers or hardware roadmaps. Watch the 17 November earnings call for any change in supply, pricing or the open-source commitments around Hugging Face.",
+      "terms": [
+        [
+          "8-K",
+          "The SEC filing US public companies use to report major events such as a CEO change."
+        ],
+        [
+          "Interim CEO",
+          "A temporary chief executive who serves until a permanent one is named."
+        ]
+      ],
+      "why": "Hugging Face CEO Clement Delangue pledged to keep defending open-source AI after Huang's exit.",
+      "source": "Nvidia 8-K (SEC), TechCrunch · 12 Nov"
+    },
+    {
+      "id": "fireworks-breach",
       "section": "Ethics",
       "date": "12 Nov",
       "concept": null,
-      "title": "Nonprofits ask a court to halt frontier AI development",
-      "plain": "Four nonprofits sued Anthropic, Google, Meta, OpenAI and SpaceX's AI unit in San Francisco, asking a judge to stop work on models more capable than today's frontier systems.",
-      "eng": "The legal theory is California's Unfair Competition Law, not a new AI statute. Plaintiffs cite the companies' own leaders' warnings about catastrophic risk. Filed by Irreplaceable Education Fund, Public Citizen, Heat Initiative and Alliance for Secure AI.",
+      "title": "Fireworks AI breach exposed Notion AI chat transcripts",
+      "plain": "Fireworks AI, a platform that serves open models to developers, confirmed attackers reached customer data through its cloud provider. Notion said chat transcripts from some Notion AI users were taken, affecting around 1% of its customers.",
+      "eng": "Attackers breached Fireworks' cloud provider to reach a Fireworks development system, then took billing information and some customer datasets. Notion's stolen data covers model inputs and outputs written to chat in its Insights feature, much of it not attributable to a specific customer. Fireworks says the attackers aim to resell stolen access to language models.",
       "specs": [
         [
-          "Filed",
-          "12 Nov 2026, SF Superior Court"
+          "Notion customers affected",
+          "~1%"
         ],
         [
-          "Defendants",
-          "Anthropic, Google, Meta, OpenAI, SpaceX AI"
+          "Notion response",
+          "Disconnected and deleted data on 3 Nov"
         ],
         [
-          "Relief sought",
-          "Injunction above current frontier"
+          "Data taken",
+          "Billing info, datasets, chat transcripts"
         ],
         [
-          "Basis",
-          "CA Unfair Competition Law"
+          "History",
+          "Fireworks' second breach in two months"
+        ],
+        [
+          "Motive (per Fireworks)",
+          "Reselling stolen model access"
         ]
       ],
-      "why": "Since 18 September, three of these labs have become defendants both in a suit calling coordinated slowdowns illegal and in this one calling continued development illegal.",
-      "source": "Court filing coverage · 12 Nov",
-      "point": "The point: if courts treat 'building smarter AI' as an unfair business practice, frontier labs could face injunctions without any new AI law.",
-      "means": "Four advocacy groups are using California's general consumer-protection law to argue that labs whose own CEOs say AI could be catastrophic should not keep making it more capable. They want a court order freezing models above today's frontier. Separately, the same labs are being sued for the opposite: that agreeing to slow down together is illegal collusion.",
-      "industry": "The labs are squeezed between 'slowing down together is anticompetitive' and 'not slowing down is unsafe'. Even if this suit fails, it signals that litigation, not legislation, is where AI limits may get set in the US first.",
-      "you": "Low direct impact on your day-to-day. Worth tracking if you depend on a single frontier provider: legal risk is now part of vendor risk.",
+      "point": "The point: your AI vendor's inference provider is part of your attack surface, and prompts and outputs are sensitive data.",
+      "means": "Many AI features sit on a chain of vendors: an app calls a model host, which runs on a cloud. Prompts and outputs pass through, and are sometimes stored at, each link. Here a breach two layers down exposed what users typed into Notion AI. The attackers' main goal was not the data but free compute: stolen access lets them sell model usage to others, a practice known as LLMjacking.",
+      "industry": "As companies route traffic through hosted platforms for open models, those platforms become high-value targets. Expect closer scrutiny of data retention, sub-processor lists and credential security in AI vendor contracts.",
+      "you": "Map where your prompts and completions go, including your vendors' vendors, and whether any of it is stored. Rotate model API keys, set spending limits and alert on unusual usage, which is how LLMjacking is usually caught.",
       "terms": [
         [
-          "Injunction",
-          "A court order to stop doing something."
+          "LLMjacking",
+          "Stealing credentials or access to AI models and reselling or abusing the compute."
         ],
         [
-          "Unfair Competition Law",
-          "A broad California statute against unlawful or unfair business practices."
-        ],
-        [
-          "Frontier model",
-          "The most capable models from the leading labs."
+          "Sub-processor",
+          "A third party your vendor uses to process your data."
         ]
-      ]
+      ],
+      "why": "Fireworks says it serves tens of thousands of customers, including Harvey and Cursor; no other affected customers were named.",
+      "source": "TechCrunch · 12 Nov"
     },
     {
-      "id": "rules",
+      "id": "ny-raise",
       "section": "Rules",
-      "date": "11 Nov",
-      "concept": null,
-      "title": "Japan weighs binding orders for advanced AI developers",
-      "plain": "Japan, which has relied on voluntary guidelines, is considering powers to issue binding orders and penalties to companies behind advanced AI that ignore safety rules.",
-      "eng": "Proposals surfaced at the 11 Nov meeting of a working group on AI legal systems, first convened 28 Oct. Also this week: an EU consumer proposal would require AI shopping agents to let users control purchases.",
-      "specs": [
-        [
-          "Japan",
-          "Binding orders under discussion"
-        ],
-        [
-          "EU",
-          "Shopping agents must let users control purchases (proposal)"
-        ],
-        [
-          "EU AI Act",
-          "Prohibitions + Art. 50(2) deadline, 2 Dec"
-        ],
-        [
-          "California SB 574",
-          "Lawyers answer for AI output, from 1 Jan 2027"
-        ]
-      ],
-      "why": "Rules are starting to target agents directly. If you ship agents that transact, purchase-confirmation UX may become a compliance requirement in the EU.",
-      "source": "MLex, Crypto Briefing · 11–12 Nov",
-      "point": "The point: regulation is starting to name agents specifically, especially agents that spend money.",
-      "means": "Japan has regulated AI by guidelines that companies could ignore. It is now considering powers to issue binding orders to developers of advanced AI. In the EU, a consumer proposal says AI shopping agents must leave users in control of purchases, so an agent cannot buy without the user's sign-off. The EU AI Act's next deadlines hit on 2 December.",
-      "industry": "The first wave of AI rules targeted models and content. The second wave targets actions: what an agent can do on your behalf. That changes product design, not just legal paperwork.",
-      "you": "If you build agents that transact, book or send, build explicit confirmation steps, spending limits and audit logs now. They are likely to become requirements, and they are good engineering anyway.",
-      "terms": [
-        [
-          "Soft law",
-          "Voluntary guidance with no penalties."
-        ],
-        [
-          "Article 50",
-          "The EU AI Act’s transparency rules, such as labelling AI-generated content."
-        ],
-        [
-          "Human-in-the-loop",
-          "A person must approve before the system acts."
-        ]
-      ]
-    },
-    {
-      "id": "robots",
-      "section": "Robots",
-      "date": "9 Nov",
-      "concept": "humanoid",
-      "title": "Humanoids took the stage at Web Summit, as speakers",
-      "plain": "Nine AgiBot humanoids opened Web Summit in Lisbon with a synchronised routine, and for the first time humanoid robots appeared as official speakers.",
-      "eng": "The more practical exhibit was Galbot's wheeled, two-armed robot for shops, pharmacies and factories. Separately, Agility (maker of Digit) began trading on Nasdaq as AGLT on 5 Nov after its SPAC merger.",
-      "specs": [
-        [
-          "Event",
-          "Web Summit 2026, opened 9 Nov"
-        ],
-        [
-          "Demo",
-          "9 AgiBot humanoids"
-        ],
-        [
-          "Notable",
-          "Galbot wheeled dual-arm robot"
-        ],
-        [
-          "Listing",
-          "Agility, Nasdaq: AGLT, 5 Nov"
-        ]
-      ],
-      "why": "AGLT joins UBTech, Unitree and Rainbow Robotics as a publicly traded humanoid maker.",
-      "source": "Euronews · 13 Nov",
-      "point": "The point: humanoids are now a public-market asset class, and the useful robots are often not humanoid.",
-      "means": "The dancing robots got the headlines, but the more telling exhibit was Galbot's wheeled, two-armed robot: no legs, built for shelves and pharmacies. Legs are hard and expensive; wheels plus good arms cover most indoor work. Meanwhile Agility, maker of the Digit warehouse humanoid, went public on Nasdaq.",
-      "industry": "Robotics is where AI models leave the screen. The bottleneck is no longer the body but the 'brain': models that understand physics and can handle unfamiliar objects, which is why world models are a hot research area.",
-      "you": "If you're curious about physical AI, the software stack (simulation, vision-language-action models, Nvidia Isaac) is where most engineering demand is.",
-      "terms": [
-        [
-          "Humanoid",
-          "A robot with a roughly human body plan."
-        ],
-        [
-          "Physical AI",
-          "AI that perceives and acts in the real world."
-        ],
-        [
-          "SPAC",
-          "A shell company used to take a startup public faster than a traditional IPO."
-        ]
-      ]
-    },
-    {
-      "id": "capital",
-      "section": "Corporate",
-      "date": "12 Nov",
-      "concept": "hybrid",
-      "title": "AMD and Salesforce put money into quantum + AI",
-      "plain": "AMD plans an equity stake in photonic quantum company PsiQuantum, and Q-CTRL raised $290M led by Salesforce Ventures. Both deals are pitched on combining quantum, HPC and AI.",
-      "eng": "The PsiQuantum partnership expands from FPGAs to Instinct GPUs and EPYC CPUs for fault-tolerant system co-design, with early work running drug-discovery molecular simulations on AMD GPUs. Technical roadmap at SC26, Chicago, 15–20 Nov.",
-      "specs": [
-        [
-          "AMD → PsiQuantum",
-          "Equity, amount undisclosed"
-        ],
-        [
-          "Q-CTRL Series C",
-          "US$290M, Salesforce Ventures"
-        ],
-        [
-          "Next",
-          "SC26 Chicago, 15–20 Nov"
-        ]
-      ],
-      "why": "Watch SC26 for the decoder details. A related preprint covers machine-learning decoders for fusion-based quantum computing in real time.",
-      "source": "HPCwire, Reuters · 12 Nov",
-      "point": "The point: chip makers and enterprise software companies are betting that quantum will be sold as part of AI infrastructure.",
-      "means": "AMD is taking an ownership stake in PsiQuantum, which builds quantum computers from photons on silicon chips, to co-design the classical hardware that controls and error-corrects them. Q-CTRL, which makes software that reduces quantum errors, raised $290M led by Salesforce's venture arm. Both are pitched as quantum + HPC + AI, not quantum alone.",
-      "industry": "Money follows the hybrid thesis from the IBM story. Nvidia, AMD and IBM all want to own the classical side of quantum, the same way Nvidia owned the AI training stack.",
-      "you": "Watch SC26 next week (15 to 20 Nov) for the technical roadmap. If you work in HPC, quantum-control and decoder work is an emerging niche.",
-      "terms": [
-        [
-          "Photonic quantum computing",
-          "Using particles of light as qubits."
-        ],
-        [
-          "Decoder",
-          "The classical software that spots and corrects quantum errors in real time."
-        ],
-        [
-          "Series C",
-          "A later-stage venture funding round."
-        ]
-      ]
-    },
-    {
-      "id": "ipo",
-      "section": "Corporate",
       "date": "10 Nov",
       "concept": null,
-      "title": "Anthropic's IPO could price the week of 16 November",
-      "plain": "Anthropic may begin marketing its IPO this week, with a Nasdaq debut possible before Thanksgiving. It would be the largest AI listing so far.",
-      "eng": "Amended S-1: Q3 revenue $16.96B, up from $11.56B in Q2, which is 47% sequential growth, down from 144%. Annualized run rate is about $67.8B against a reported $1.1T–$1.3T valuation range.",
+      "title": "New York opens AI safety registry; frontier labs must sign up",
+      "plain": "New York opened registration under its RAISE Act, which requires large AI developers such as OpenAI and Anthropic to publish safety frameworks and report serious incidents. They must register by 1 January 2027, when the law takes effect.",
+      "eng": "The law covers frontier developers with more than $500M in annual revenue. They must publish a safety framework, report critical safety incidents within 72 hours, issue model transparency reports and register with the state. A new Office of Digital Innovation, Governance, Integrity and Trust (DIGIT) enforces it, working with a new SUNY Binghamton center that will evaluate advanced models.",
       "specs": [
         [
-          "Q3 revenue",
-          "$16.96B"
+          "Revenue threshold",
+          "Over $500M a year"
         ],
         [
-          "QoQ growth",
-          "47% (Q2: 144%)"
+          "Incident reporting",
+          "72 hours (California SB 53: 15 days)"
         ],
         [
-          "Annualized",
-          "~$67.8B"
+          "Penalties",
+          "Up to $1M, then $3M per violation"
         ],
         [
-          "Target window",
-          "Week of 16 Nov"
+          "Register by",
+          "1 Jan 2027"
+        ],
+        [
+          "State evaluator",
+          "NY Center for AI Responsibility and Research"
         ]
       ],
-      "why": "OpenAI is expected to follow, so Anthropic's pricing may set the template for private AI valuations.",
-      "source": "Investing.com, Bloomberg · 10 Nov",
-      "point": "The point: Anthropic's IPO will set the price tag for the whole AI industry, including OpenAI's expected listing.",
-      "means": "Anthropic made about $17B in Q3, but growth slowed from 144% quarter-on-quarter to 47%. At a $1.1T to $1.3T valuation, investors would pay roughly 16 to 19 times annual revenue. That is a bet that AI revenue keeps compounding for years.",
-      "industry": "Public markets will now judge AI labs every quarter. Slowing growth or rising compute costs will move prices, which affects how much labs can spend on training and how they price APIs.",
-      "you": "API pricing and rate limits are tied to these economics. A public Anthropic will publish detailed numbers each quarter, which tells you where pricing is heading.",
+      "point": "The point: US frontier AI rules are being written state by state, and New York now sets the tightest reporting clock.",
+      "means": "With no federal AI law, states are writing their own rules for the biggest labs. California's SB 53 took effect in January 2026; New York's law is similar but demands incident reports within 72 hours instead of 15 days. Illinois' SB 315, also effective in 2027, adds independent safety audits. These rules require disclosure and reporting; they do not restrict what models can do.",
+      "industry": "Labs now juggle overlapping state regimes, which strengthens the push in Congress for a federal framework that would override them. Short reporting deadlines also force companies to build monitoring that catches serious failures fast.",
+      "you": "If you build on a covered lab's models, expect more published safety frameworks and transparency reports you can cite in your own risk reviews. Smaller companies fall below the threshold, but enterprise customers may start asking for similar documentation.",
       "terms": [
         [
-          "S-1",
-          "The filing a company makes before going public, with its financials."
+          "Frontier developer",
+          "Here, a company training advanced models with over $500M in annual revenue."
         ],
         [
-          "Run rate",
-          "Current revenue extrapolated to a full year."
+          "Safety framework",
+          "A public document describing how a lab tests for and limits severe risks."
         ],
         [
-          "Sequential growth",
-          "Growth from one quarter to the next."
+          "Preemption",
+          "A federal law overriding state laws on the same subject."
         ]
-      ]
+      ],
+      "why": "The SUNY Binghamton center, announced in January with $55 million in donations and capital, launched the same day.",
+      "source": "TechCrunch · 10 Nov"
     }
   ],
   "concepts": [
@@ -490,12 +506,40 @@
       "desc": "What comes after orchestrating a few agents: very large teams of agents working against a strict verifier.",
       "signals": [
         [
-          "9 Nov",
-          "~1,000 Claude agents formalize Fermat's Last Theorem in about 30 hours."
+          "10 Nov",
+          "AlphaProof Code: Gemini-powered agents write millions of lines of Lean to verify Signal's core crypto code in about four weeks."
         ],
         [
           "10 Nov",
           "LLM proposals plus an automated evaluator beat best known quantum circuits on 7 of 8 tasks."
+        ],
+        [
+          "9 Nov",
+          "~1,000 Claude agents formalize Fermat's Last Theorem in about 30 hours."
+        ],
+        [
+          "6 Nov",
+          "Google agent teams coordinate through shared wikis and organized \"conferences\" to find verified quantum programs."
+        ]
+      ]
+    },
+    {
+      "id": "verify",
+      "name": "Agents that prove code correct",
+      "stage": 1,
+      "desc": "Agents write machine-checked proofs, usually in Lean, that software or algorithms meet a formal spec, so their output can be trusted without a human reading every line.",
+      "signals": [
+        [
+          "10 Nov",
+          "DeepMind's AlphaProof Code verifies Signal's one-to-one crypto down to machine instructions; humans review ~1% of the code."
+        ],
+        [
+          "9 Nov",
+          "~1,000 Claude agents formalize Fermat's Last Theorem in Lean in about 30 hours."
+        ],
+        [
+          "6 Nov",
+          "Google builds a Lean library where agents write quantum programs whose correctness and cost are proven."
         ]
       ]
     },
@@ -514,12 +558,16 @@
     {
       "id": "world",
       "name": "Continual world models",
-      "stage": 0,
+      "stage": 1,
       "desc": "Models that learn physics and causality from observation and keep updating after training. The bridge from text to physical tasks.",
       "signals": [
         [
           "Dec",
           "NeurIPS 2026 runs a dedicated Continual World Models workshop, with papers on test-time adaptation and multi-agent world models."
+        ],
+        [
+          "11 Nov",
+          "NTT physics-constrained video world model lifts robot shelf-loading success from 73.1% to 92.3%; airport baggage trials planned with Mujin."
         ]
       ]
     },
@@ -534,8 +582,28 @@
           "QuEra, Harvard and Anthropic publicise AI-designed circuits with up to 9,100× lower space-time cost."
         ],
         [
+          "6 Nov",
+          "Google preprint: agents writing Lean-verified quantum programs beat baselines by up to 290x on arithmetic and 11x on fusion-relevant simulation."
+        ],
+        [
           "Oct",
           "Preprint: modular inversion circuit with 17× fewer gates after a 53-hour run."
+        ]
+      ]
+    },
+    {
+      "id": "inject",
+      "name": "Instruction–data separation",
+      "stage": 1,
+      "desc": "Training models to treat only designated text as commands, so instructions hidden in documents, web pages or tool output are ignored.",
+      "signals": [
+        [
+          "12 Nov",
+          "IBM's LLMON previews mark structure with special tokens and avoid 47% more injection attacks on OPI than the best frontier model tested."
+        ],
+        [
+          "12 Nov",
+          "Gemini 4 Hydrogen reported 2.3x more resilient to indirect prompt injection on the Gray Swan benchmark."
         ]
       ]
     },
@@ -665,9 +733,9 @@
       "name": "Agent swarms with verifiers",
       "short": "Hundreds to thousands of agents work against an automatic checker that accepts only correct results.",
       "how": "Instead of trusting agents, you trust the verifier: a proof checker, test suite or simulator. Agents propose, the verifier filters, survivors get refined. Memory layers start letting agents keep what they learn.",
-      "built": "1,000-agent formal proof of Fermat in ~30h; AI-designed quantum circuits beating human designs.",
+      "built": "1,000-agent formal proof of Fermat in ~30h; AI-designed quantum circuits beating human designs; Signal's crypto code verified by agents in Lean.",
       "broke": "Still open: it only works where a strict automatic check exists.",
-      "marks": "Fermat formalization (9 Nov 2026), AI quantum circuits (10 Nov 2026)"
+      "marks": "Fermat formalization (9 Nov 2026), AI quantum circuits (10 Nov 2026), AlphaProof Code on Signal (10 Nov 2026)"
     },
     {
       "id": "next",
@@ -687,27 +755,27 @@
         [
           "up",
           "Swarms + verifiers",
-          "Two independent results this week (Fermat, quantum circuits) used the same pattern. Strongest signal yet that this is the current era."
-        ],
-        [
-          "up",
-          "AI for science",
-          "AlphaGenome 2 and the quantum-circuit work show models producing new results, not summaries."
-        ],
-        [
-          "up",
-          "Hybrid quantum",
-          "IBM, AMD–PsiQuantum and Q-CTRL all pitched quantum as part of AI and HPC infrastructure."
+          "Fermat formalization, AI-designed quantum circuits, Google's Lean-verified quantum programs and AlphaProof Code all paired many agents with a strict checker."
         ],
         [
           "new",
-          "Rules aimed at agents",
-          "EU proposal on shopping agents; Japan weighs binding orders."
+          "Agents that prove code correct",
+          "DeepMind verified Signal's one-to-one crypto down to machine instructions in about four weeks."
+        ],
+        [
+          "new",
+          "Injection defenses in the model",
+          "IBM's LLMON and Gemini 4 Hydrogen both led with prompt-injection resilience."
+        ],
+        [
+          "up",
+          "Rules for frontier labs",
+          "New York opened RAISE Act registration; Japan weighs binding orders; nonprofits sued to halt frontier development."
         ],
         [
           "watch",
-          "Litigation as regulation",
-          "Suit seeking to freeze frontier development."
+          "Nvidia without Huang",
+          "CEO resigned 12 Nov with Kress as interim; Nvidia earnings on 17 Nov and Anthropic IPO pricing on 18 Nov follow."
         ]
       ]
     },
