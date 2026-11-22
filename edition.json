@@ -1,445 +1,437 @@
 {
-  "date": "2026-11-21",
-  "dateLabel": "SAT 21 NOV 2026",
+  "date": "2026-11-22",
+  "dateLabel": "SUN 22 NOV 2026",
   "weekLabel": "WEEK OF 16 NOV",
   "stories": [
     {
-      "id": "anthropic-ipo-83-nasdaq-debut",
-      "section": "Corporate",
-      "date": "19 Nov",
-      "concept": null,
-      "title": "Anthropic prices IPO at $83 and opens 34% higher on Nasdaq",
-      "plain": "Anthropic sold shares to the public for the first time, at $83 each, above the range it had marketed. The stock started trading on Nasdaq on Thursday under the ticker ANT and opened at $111.50.",
-      "eng": "The deal was upsized to 980 million Class A shares, almost all sold by Anthropic itself, with a 30-day option for underwriters to buy 147 million more. Alongside it, seven companies (Google, Nvidia, AMD, Broadcom, Micron, Microsoft and TSMC) bought $26 billion of separate non-trading Class N stock at the same price. Founders keep a fixed 50.1% of the vote through a Class F share.",
-      "specs": [
-        [
-          "IPO price",
-          "$83 (marketed $70–78)"
-        ],
-        [
-          "Shares sold",
-          "980M, plus 147M greenshoe option"
-        ],
-        [
-          "Strategic placement",
-          "$26B from 7 companies"
-        ],
-        [
-          "IPO proceeds",
-          "At least $81.3B before greenshoe"
-        ],
-        [
-          "Opening trade",
-          "$111.50, 34% above IPO price"
-        ]
-      ],
-      "point": "The point: the first frontier lab to list publicly raised more than any IPO before it, and its own chip and cloud suppliers bought in at the same price.",
-      "means": "Until now, frontier labs were funded only by private rounds, so their finances were mostly hidden. Going public means quarterly reports, audited numbers and a share price that moves daily. The amended filing showed Q3 revenue of $16.96 billion with a $567 million operating loss, and roughly $900 billion of compute commitments. The big strategic placement matters because it ties the companies that sell Anthropic chips and cloud capacity directly to its share price.",
-      "industry": "The listing beats SpaceX's June IPO as the largest ever and gives public investors a direct way to bet on a frontier lab, which will set a reference price for OpenAI and others. It also brings more scrutiny: four senators introduced a bill the same week requiring public companies to disclose more about AI. Watch whether the stock holds as quarterly numbers and compute bills arrive.",
-      "you": "Expect Anthropic's pricing, rate limits and roadmap to be shaped partly by quarterly earnings now, the way cloud providers' are. Public filings will also give you real data on serving costs and margins, which helps when you estimate what model APIs will cost in a year.",
-      "terms": [
-        [
-          "Greenshoe",
-          "An option letting underwriters sell up to ~15% more shares after an IPO if demand is strong."
-        ],
-        [
-          "Fully diluted",
-          "Share count including options and unvested stock, used for the higher valuation figure."
-        ]
-      ],
-      "why": "The first-day close was reported at $97.17, up 17% from the offer price, and the stock fell further in Friday's broad AI selloff.",
-      "source": "ZeroHedge · 19 Nov; The Next Web · 18 Nov; CNBC (via AI Frontier Daily) · 20 Nov"
-    },
-    {
-      "id": "alpoge-claude-riemann-claim",
-      "section": "ML research",
-      "date": "20 Nov",
-      "concept": "verify",
-      "title": "Anthropic mathematician claims Riemann proof with Claude, in Lean",
-      "plain": "Levent Alpöge, a mathematician at Anthropic, posted a statement saying he and Claude found a proof of the Riemann Hypothesis, the most famous open problem in mathematics. No independent expert has confirmed it yet.",
-      "eng": "Instead of a human-readable paper, Alpöge released a formalization in Lean, a proof assistant that mechanically checks each step, split into 14 archive parts. He says the arguments were formalized without extra assumptions and that the method also covers the Generalized Riemann Hypothesis. He calls the argument very long and says he has not yet fully mastered the mathematics it uses.",
-      "specs": [
-        [
-          "Problem",
-          "Riemann Hypothesis, posed 1859"
-        ],
-        [
-          "Release format",
-          "Lean formalization, 14 archive parts"
-        ],
-        [
-          "Also claimed",
-          "Generalized Riemann Hypothesis"
-        ],
-        [
-          "Independent check",
-          "None reported yet"
-        ]
-      ],
-      "point": "The point: if the Lean files check out and state the right theorem, this would be the first major open problem settled with a machine-checked proof largely produced by an AI.",
-      "means": "The Riemann Hypothesis predicts how prime numbers are spread out; it has resisted proof for 167 years and carries a $1 million prize. Many claimed proofs have failed. Lean changes the question: a computer can confirm every step follows, but experts still have to confirm two things, that the hypothesis is stated correctly in the code and that no hidden assumptions slipped in. Scientific American noted those two checks are exactly what mathematicians will now examine. In August, Claude had already improved a 50-year-old partial bound on the problem, from 41.6% to 67.2% of zeros.",
-      "industry": "Labs have been pushing 'AI that proves things' because machine-checked output can be trusted without a human reading every line. A confirmed result would be the strongest evidence yet that agents can do original frontier research, not just engineering. A failed one would still show how hard it is to verify a formal statement matches what you meant.",
-      "you": "The lesson for code is the same: a passing proof or test only covers what the spec says. When you use agents with formal checks (types, property tests, Lean or Dafny), review the spec itself as carefully as you would review code.",
-      "terms": [
-        [
-          "Lean",
-          "A programming language and proof assistant that checks each step of a mathematical proof by computer."
-        ],
-        [
-          "Formalization",
-          "Rewriting a proof so every step is machine-checkable."
-        ]
-      ],
-      "why": "Scientific American separately reported dueling claims of Riemann proofs emerging.",
-      "source": "Scientific American (via Digg) · 20 Nov; Anthropic · 10 Aug"
-    },
-    {
-      "id": "meta-fair-self-improving-memory",
-      "section": "ML research",
+      "id": "replit-missions-budgeted-swarms",
+      "section": "Agents",
       "date": "17 Nov",
-      "concept": "memory",
-      "title": "Meta FAIR agent writes its own memory rules, then trains them in",
-      "plain": "Meta researchers let an AI agent design its own rules for what to save and recall between tasks, then baked those habits into the model's weights. The self-written rules beat the best ones humans wrote.",
-      "eng": "The task agent's only memory is a folder of files; two prompts control it, OFFLOAD (what to save after a task) and LOAD (what to read before the next). A meta-agent reads the task agent's runs, finds memory failures and rewrites those prompts, keeping the best-scoring versions. Then the team swaps generic prompts back into the recorded good runs and fine-tunes Kimi-K2.6 on them with a rank-64 LoRA, so the model behaves well even without the special prompts.",
+      "concept": "swarm",
+      "title": "Replit Missions: agent swarms that work to a goal and a hard budget",
+      "plain": "Replit launched Missions, where you describe an outcome and a team of AI agents plans, builds, tests and iterates until an independent AI judge says it is met. You set a spending cap and list which actions need your approval first.",
+      "eng": "Each agent runs in its own isolated cloud environment with dev tools, databases, auth and deploy access; agents work on separate copies and a dedicated agent resolves merge conflicts. Spend is checked at every step and paid services are blocked at the proxy once the cap is hit. A 'Mission agreement' records the success criteria, budget and approval gates.",
       "specs": [
         [
-          "Avg score, self-written prompts",
-          "56.0 vs 44.6 best human"
+          "NumPy benchmark (13 tasks)",
+          "Up to 19x with 32 agents vs up to 4x single agent"
         ],
         [
-          "Generic prompts / no memory",
-          "36.1 / 20.4"
+          "Internal build",
+          "Monitoring platform in 2 days for $3,000"
         ],
         [
-          "Fine-tuned, generic prompts",
-          "43.1 vs 37.6 baseline fine-tune"
+          "Trace ingest",
+          "49,000/s vs 9,800/s for a Claude Code build"
         ],
         [
-          "Codebase task",
-          "43.7 to 64.3"
-        ],
-        [
-          "Failed revisions in search",
-          "37 of 44"
+          "Example budget",
+          "$1,000 cap, approval before contacting prospects"
         ]
       ],
-      "point": "The point: memory strategy for agents can be searched for automatically and then distilled into weights, instead of hand-written per task.",
-      "means": "Agents forget everything between sessions unless you give them a memory system, and writing good rules for what to remember is guesswork; the team found no single hand-written design won on every task. Here the model searches for its own rules and gets a clear jump, especially on the codebase task. Distillation keeps part of the gain (roughly a third, by one outside estimate) without the prompts. The search is noisy: most rewrites made things worse, and results cover one benchmark, three tasks and one model.",
-      "industry": "Continual learning, getting better after deployment without full retraining, is a major open problem for agents. This is a practical recipe: optimize the harness, then compress it into a cheap LoRA adapter. It fits the broader move to treat prompts and harnesses as things to optimize, not hand-tune.",
-      "you": "If you run agents with file-based memory, treat your save and load instructions as a parameter to optimize against an eval, not a fixed prompt. Even without fine-tuning, an automated rewrite-and-score loop over those two prompts is cheap to try.",
+      "point": "The point: swarms are becoming a product with budgets, approval gates and an external judge built in, not just a research demo.",
+      "means": "Most multi-agent tools so far either ran a handful of agents or let token costs run away. Missions treats a big task like a contract: define what success looks like, give a budget, and let many agents work in parallel until a separate judge model checks the result against the criteria. If money runs out first, work stops unresolved. Replit's numbers come from its own tests, and it notes the Claude Code comparison used one run per setup, so treat them as indicative rather than independent benchmarks.",
+      "industry": "Cognition, Factory and now Replit are all shipping 'manager' layers that coordinate many coding agents. The hard part is shifting from getting agents to write code to controlling cost, permissions and verification across dozens of them, which is where vendors are competing.",
+      "you": "If you try swarm tools, write the success criteria and tests first; the judge is only as good as the spec it checks. Put spending caps and approval gates on anything customer-facing, and enforce them outside the agent (proxy or IAM), as Replit does.",
       "terms": [
         [
-          "LoRA",
-          "Low-rank adaptation: training a small add-on matrix instead of the full model's weights."
+          "Agent swarm",
+          "Many AI agents working in parallel on parts of one goal, coordinated by software or another agent."
         ],
         [
-          "Harness distillation",
-          "Fine-tuning a model on runs that used special prompts so it behaves that way without them."
+          "AI judge",
+          "A separate model that checks finished work against agreed criteria instead of trusting the agent's own report."
         ]
       ],
-      "why": "Base model was Kimi-K2.6, a 1-trillion-parameter mixture-of-experts model with 32B active parameters.",
-      "source": "Meta FAIR (via FourWeekMBA) · 17 Nov; MarkTechPost (via Rio Rundown) · 19 Nov"
+      "why": "Replit says it open-sourced a self-hostable version of the monitoring platform its agents built.",
+      "source": "Replit blog · 17 Nov; The New Stack · 17 Nov"
     },
     {
-      "id": "genie-4-project-genie-api",
-      "section": "ML research",
-      "date": "18 Nov",
-      "concept": "world",
-      "title": "Google opens Genie 4 world model to subscribers and the Gemini API",
-      "plain": "Google DeepMind's Genie 4, which generates explorable 3D worlds you can walk through in real time, became available to Google AI Ultra subscribers in Project Genie. A day later it reached developers through the Gemini API.",
-      "eng": "Genie 4 is a transformer that takes text, images and live keyboard and mouse input and generates video frame by frame with synchronized audio, built on Gemini Omni Flash with Gemini used for steering. Users can change the world mid-session by text prompt, such as the weather or characters. Google gave no quantitative evaluations and lists long-term consistency and complex physics as open problems.",
-      "specs": [
-        [
-          "Output",
-          "720p, up to 24 fps"
-        ],
-        [
-          "Session length",
-          "Up to about 2 minutes"
-        ],
-        [
-          "Inputs",
-          "Text, images, keyboard and mouse"
-        ],
-        [
-          "Audio",
-          "Native, generated with the video"
-        ]
-      ],
-      "point": "The point: an interactive world model is now an API call, so developers can test it as a simulator, not just watch demos.",
-      "means": "A world model learns how scenes behave over time so it can predict the next frame given an action, much like a game engine that was learned rather than coded. Genie 3 sessions ran about a minute; Genie 4 doubles that and adds sound. Two minutes is still short and scenes can drift, so this is a research tool, not a replacement for a physics engine.",
-      "industry": "World models are the main bet for training robots and agents in simulation, where mistakes are free; DeepMind has already used Gemini with Genie 4 as a robot practice environment. AMD's purchase of World Labs last week shows hardware companies want in too.",
-      "you": "If you work on agents, games or robotics, you can now prototype against a generated environment without building one. Treat outputs as plausible, not physically accurate, and keep episodes short.",
-      "terms": [
-        [
-          "World model",
-          "A model that predicts how an environment changes in response to actions."
-        ],
-        [
-          "Drift",
-          "Gradual loss of consistency as generated scenes run longer."
-        ]
-      ],
-      "why": "Each output carries a SynthID watermark.",
-      "source": "Google DeepMind model card · 18 Nov; Google (via AI Frontier Daily) · 18–19 Nov; The Batch · 6 Nov"
-    },
-    {
-      "id": "openai-performance-factory",
+      "id": "walmart-agent-gateway-sparky",
       "section": "Agents",
-      "date": "20 Nov",
-      "concept": "airnd",
-      "title": "OpenAI's Codex agents now hunt and fix ChatGPT slowdowns",
-      "plain": "OpenAI described an internal system where its Codex coding agents investigate when ChatGPT gets slower, propose fixes and check that speed recovers after the fix ships. It has run over 1,700 investigations in about three months.",
-      "eng": "When monitoring detects a latency regression, agents are triggered to run profilers, compare before-and-after profiles, find the cause and propose a patch, then verify recovery in production. OpenAI's performance team has described a second, proactive loop where specialized agents search in parallel for latency, CPU, memory, bundle-size and database savings. Its stated preconditions are good tests, reliable benchmarks, observability and safe rollout.",
-      "specs": [
-        [
-          "Automated investigations",
-          "Over 1,700"
-        ],
-        [
-          "Root causes found",
-          "Over 600"
-        ],
-        [
-          "Period",
-          "About 3 months"
-        ],
-        [
-          "ChatGPT weekly users",
-          "900 million"
-        ]
-      ],
-      "point": "The point: agents are moving from writing features to running production operations work on a system with hundreds of millions of users.",
-      "means": "Performance work is slow and repetitive: someone notices a slowdown, bisects changes, profiles, and fixes. At ChatGPT's scale, many small regressions land every week and humans can't chase all of them. Handing the first pass to agents, with automatic checks that the fix worked, turns it into a pipeline. OpenAI's team has warned that if benchmark or deploy cycles take hours, agents add little.",
-      "industry": "Labs increasingly point to their own infrastructure being maintained by agents as evidence that AI speeds up AI. It also shows where the leverage is: not in the model alone, but in the profilers, benchmarks and rollout tooling the agent can call.",
-      "you": "Before handing regressions to agents, make your perf signals agent-friendly: reproducible benchmarks, profiles you can diff, and fast canaries. A good first project is a bot that bisects and profiles a regression and posts a diagnosis for a human to approve.",
-      "terms": [
-        [
-          "Regression",
-          "A change that makes something slower or worse than before."
-        ],
-        [
-          "Canary",
-          "Rolling a change out to a small share of traffic first to catch problems."
-        ]
-      ],
-      "why": "Digests differ on wording: one says 600+ cases resolved, the other 600+ root causes found.",
-      "source": "OpenAI (via Rio Rundown and The Neuron) · 20 Nov; ZenML LLMOps database"
-    },
-    {
-      "id": "gemini-mac-computer-use-apple-agent",
-      "section": "Agents",
-      "date": "19 Nov",
+      "date": "21 Nov",
       "concept": null,
-      "title": "Gemini can now operate your Mac; Apple is building its own agent",
-      "plain": "Google's Gemini app for Mac can now use native apps, local files and websites on its own in the background. The same day, Bloomberg reported Apple is building its own computer-using agent and will warn users about giving full access to others.",
-      "eng": "Gemini runs actions while showing a live preview, and the user can pause, stop or approve steps; Google's examples are filling forms, batch-renaming files, sorting folders and building slides from dashboards. Apple posted a job for a manager to build an agent that can use a computer, and per Bloomberg, macOS 27.3 will add warnings before granting third-party agents full access.",
+      "title": "Walmart's agent use doubles; it builds a gate for outside agents",
+      "plain": "Walmart said use of Sparky, its AI shopping assistant, more than doubled in the US last quarter. It is also launching a Walmart Agent Gateway to control how outside AI agents shop on its platform.",
+      "eng": "The gateway manages approved external agents, with customer-set permissions and spending limits. Sparky added voice and image shopping, new language support, and expanded to Mexico, Canada and Sam's Club.",
       "specs": [
         [
-          "Gemini availability",
-          "US, English, AI Plus/Pro/Ultra"
+          "Sparky US usage",
+          "+129% year over year (Q3 FY2027)"
         ],
         [
-          "Gemini controls",
-          "Live preview; pause, stop, approve"
+          "Basket size with Sparky",
+          "+40%"
         ],
         [
-          "Apple warnings",
-          "macOS 27.3"
+          "New markets",
+          "Mexico, Canada, Sam's Club"
         ],
         [
-          "Apple agent launch",
-          "Possibly end of next year"
+          "New control",
+          "Walmart Agent Gateway for external agents"
         ]
       ],
-      "point": "The point: computer-use agents are reaching the desktop OS, and the platform owner is starting to gate access to it.",
-      "means": "Computer-use agents look at the screen and click and type like a person, which lets them work with apps that have no API. Until now these mostly ran in browsers or sandboxes. Running in the background on a real Mac means the agent can touch any local file or app, which is useful and risky. Apple said in October it would require very explicit user action for that access, and the new warnings are the first concrete step.",
-      "industry": "Every major lab now ships a desktop agent, and OS vendors control the permission layer they all depend on. If Apple builds its own while adding friction for rivals, it repeats the pattern of app store and browser gatekeeping, now for agents.",
-      "you": "If you build desktop automation, plan for OS-level permission prompts and design for the user approving actions. Prefer scoped access, such as specific folders or apps, over full disk and accessibility rights.",
+      "point": "The point: the largest retailer wants agent shopping, but on its terms, with a checkpoint every outside agent must pass.",
+      "means": "Shopping agents from OpenAI, Google and others can now browse and buy on a user's behalf. For a retailer that raises questions: who is this agent, what is it allowed to spend, and who is liable if it buys the wrong thing? A gateway is like an API gateway for agents: it authenticates them, applies the customer's permissions and limits, and logs what they do. Walmart's own numbers suggest its first-party agent is growing fast and raising order size.",
+      "industry": "Agent commerce is splitting into two camps: general assistants that shop anywhere, and retailers that want to own the agent relationship. Gateways like this, and payment standards such as x402, will decide whether third-party agents get smooth access or friction.",
+      "you": "If you build agents that transact, expect identity, scoped permissions and spending limits to be required by platforms, not optional. Design your agent to present credentials and respect per-user caps from day one.",
       "terms": [
         [
-          "Computer use",
-          "An AI model operating software through the screen, mouse and keyboard."
+          "Agent gateway",
+          "A control point that identifies outside AI agents and enforces what they may do and spend."
         ],
         [
-          "Accessibility permissions",
-          "OS rights that let one app read and control other apps' interfaces."
+          "Basket size",
+          "The total value of items in one order."
         ]
       ],
-      "why": "Google also shipped Tool Retrieval in the Gemini API this week, which loads tool schemas on demand to cut input tokens.",
-      "source": "TechCrunch · 19 Nov; Bloomberg (via TechCrunch) · 19 Nov"
+      "why": "CEO John Furner announced the figures with Walmart's third-quarter fiscal 2027 results.",
+      "source": "AIM Media House (via Rio Rundown) · 21 Nov"
     },
     {
-      "id": "aws-agents-buy-software-x402",
+      "id": "duplex-in-gemini-tasks",
       "section": "Agents",
-      "date": "19 Nov",
+      "date": "21 Nov",
       "concept": null,
-      "title": "AWS lets AI agents buy software on their own, billed to the cloud",
-      "plain": "Amazon now lets companies authorize AI agents to buy software on AWS Marketplace without a human approving each purchase. Companies set budgets and rules for which purchases still need review.",
-      "eng": "Bedrock AgentCore can charge marketplace purchases to a company's AWS bill using the x402 payment protocol, with no stablecoin wallet needed. Charges arrive as asynchronous invoice line items at fixed quoted prices, and payment tokens expire after about five minutes. An optional AgentCore Gateway connector helps agents discover paid services.",
+      "title": "Google folds Duplex into Gemini so it can phone businesses for you",
+      "plain": "Google's Duplex technology, which makes phone calls to businesses on your behalf, is now part of the Tasks feature in the Gemini app. You can ask Gemini to call a place, for example to make a reservation.",
+      "eng": "Google Research says the system now runs on foundation models and handles low-latency voice conversations with real businesses. Information gathered from these calls (hours, availability) feeds back into Search and Maps.",
       "specs": [
         [
-          "Payment protocol",
-          "x402, billed to AWS account"
+          "Where",
+          "Tasks feature in the Gemini app"
         ],
         [
-          "Payment token lifetime",
-          "About 5 minutes"
+          "Call-derived info shown",
+          "Over 1 trillion times in Search and Maps"
         ],
         [
-          "Sample session budget",
-          "$0.05"
+          "Related feature",
+          "Pixel Call Screen, available since 2019"
         ],
         [
-          "Sample per-request cap",
-          "$0.02"
+          "Authors",
+          "Yossi Matias, Yaniv Leviathan, Janet Zhou"
         ]
       ],
-      "point": "The point: a major cloud now gives agents a spending account with guardrails, which turns agent payments from demos into procurement.",
-      "means": "x402 revives the old HTTP 402 'Payment Required' code: a service tells the agent the price, the agent pays and retries. Most x402 demos used crypto wallets, which companies avoid. Billing through the existing cloud invoice removes that blocker. The short token lifetime and per-session and per-request caps limit how much a confused or hijacked agent can spend.",
-      "industry": "Agents that can pay for APIs, data and tools are a prerequisite for agents doing real work across companies. It comes the same week big US banks moved liability for agent actions onto customers, so the spending limits matter.",
-      "you": "If you build agents that call paid APIs, start designing around budgets and per-call caps now. If you sell an API, x402 support could make it reachable to agents without a sales process.",
+      "point": "The point: agents are moving off the screen and into the phone line, acting in the parts of the world that have no API.",
+      "means": "Duplex was first shown in 2018 as a scripted system that could book a haircut by phone. Rebuilding it on foundation models means it can handle a much wider range of requests and conversations. Putting it inside Gemini Tasks turns phoning into one more tool an agent can call, next to browsing and app control. The 1 trillion figure counts how often business details collected by calls appeared in Google products, not the number of calls.",
+      "industry": "Most small businesses can only be reached by phone or a basic website, so voice agents are how general assistants finish real-world errands. It also raises consent and disclosure questions for the people receiving the calls.",
+      "you": "If you run a service with a phone line, expect AI callers and plan how to handle them (clear menus, structured booking options). If you build agents, voice is now a realistic tool channel, with latency as the main engineering constraint.",
       "terms": [
         [
-          "x402",
-          "A protocol that uses HTTP status 402 to let clients, including agents, pay per request."
+          "Duplex",
+          "Google's AI system that holds natural phone conversations to complete tasks like bookings."
         ],
         [
-          "AgentCore",
-          "AWS's managed runtime and tooling for deploying AI agents."
+          "Foundation model",
+          "A large general model trained on broad data and adapted to many tasks."
         ]
       ],
-      "why": "AWS's marketplace VP Matt Yanchyshyn described the purchasing change to Fortune.",
-      "source": "Fortune (via Rio Rundown) · 20 Nov; AWS (via Superpower Daily) · 19 Nov"
+      "why": "Google published the details on its Research blog this week.",
+      "source": "Google Research blog (via Rio Rundown) · 21 Nov"
     },
     {
-      "id": "stanford-tracer-icu-delirium",
-      "section": "Medicine",
+      "id": "nvidia-inception-diffusion-llm",
+      "section": "Corporate",
       "date": "20 Nov",
       "concept": null,
-      "title": "Stanford's TRACER watches ICU video to flag early delirium",
-      "plain": "A Stanford team built an AI system that combines round-the-clock bedside video with medical records to track what ICU patients are doing and spot signs of delirium. Patients who tested positive for delirium showed much less purposeful activity in the system's records.",
-      "eng": "TRACER is training-free: vision models turn video into minute-level action logs, which are merged with clinical records into hourly reports. An LLM agent gets tools to query that hierarchy, pull up relevant video and fetch records to answer clinicians' questions. Because nothing is trained, no protected health data goes into model weights.",
+      "title": "Nvidia reportedly near deal for diffusion-LLM maker Inception",
+      "plain": "Nvidia is reported to be nearing an acquisition of Inception, a startup whose Mercury models generate text by refining many tokens at once instead of one by one. Inception has told customers its Mercury API will shut down on 28 December.",
+      "eng": "Mercury uses diffusion: it drafts a block of tokens and refines them over several passes, with a transformer doing the revisions, instead of standard autoregressive next-token decoding. Inception reports Mercury 3 at 1,068 tokens per second on Nvidia GPUs. Nvidia's own Nemotron-Labs Diffusion work includes a mode where diffusion drafts tokens and an autoregressive model verifies them.",
       "specs": [
         [
-          "Action detection accuracy",
-          "Up to 84.8%"
+          "Reported price",
+          "At least $500M (TheFly, citing The Information)"
         ],
         [
-          "Clinical QA accuracy",
-          "61.0% vs 49.3% best baseline"
+          "Mercury 3 speed",
+          "1,068 tokens/s on Nvidia GPUs (Inception)"
         ],
         [
-          "Study scale",
-          "280 patients, ~60,000 camera-hours"
+          "Mercury 3 size",
+          "More than 40x the parameters of Mercury 1"
         ],
         [
-          "Delirium signal",
-          "Less purposeful activity, p < 0.0001"
+          "API shutdown",
+          "28 Dec 2026"
         ]
       ],
-      "point": "The point: an agent with tools over video and records can give nurses continuous observation that no staff schedule allows.",
-      "means": "Delirium, sudden confusion, is common in ICU patients and linked to lasting cognitive damage, but it is checked only a few times a day by short bedside tests. Continuous video could catch changes earlier. The design is notable: instead of training one big medical model, the team chains existing models and lets an agent query the results, which sidesteps privacy and data limits. The QA test is small, 144 questions from two patients, so this is early.",
-      "industry": "Healthcare is a test case for agents built from off-the-shelf models plus domain tools. It also shows the privacy pattern regulators prefer: data is queried at runtime, not baked into weights. UC Health said the same week it will add ChatGPT to medical-record software and expand AI phone agents.",
-      "you": "The 'logs, then summaries, then an agent with query tools' pattern works for any long video or telemetry stream. It is cheaper and easier to audit than fine-tuning, and each answer can point back to the source clip.",
+      "point": "The point: the main GPU vendor may be buying the leading alternative to token-by-token text generation.",
+      "means": "Today's chat models write one token at a time, so speed is capped by how fast a GPU can run one forward pass after another. Diffusion language models, borrowed from image generation, produce many tokens in parallel and clean them up over a few steps, which can be much faster for the same quality. The deal is reported, not announced, and Inception's wind-down notice does not give a reason for closing the API.",
+      "industry": "Inference cost and latency now matter more than raw training scale, especially for agents that make many calls. If Nvidia owns a fast decoding method, it can tune it to its hardware and offer it to every customer, which puts pressure on rivals selling speed.",
+      "you": "If you use the Mercury API, export your data and migrate before 28 December. More broadly, diffusion or draft-and-verify decoding may show up in your serving stack as a speed option; check how it handles your output constraints.",
       "terms": [
         [
-          "Training-free",
-          "Built from existing models without training new weights on the target data."
+          "Autoregressive",
+          "Generating text one token at a time, each based on all previous tokens."
         ],
         [
-          "Delirium",
-          "An acute state of confusion common in hospitalized patients."
+          "Diffusion LLM",
+          "A model that drafts many tokens at once and refines them over several passes."
         ]
       ],
-      "why": "Authors include Zane Durante, Paul Tang, Ehsan Adeli, Arnold Milstein and Fei-Fei Li.",
-      "source": "Stanford HAI (via Rio Rundown) · 20 Nov; arXiv 2610.21266 · 15 Oct"
+      "why": "Earlier reports said Inception had talks with Microsoft and interest from SpaceX at an asking price above $1 billion.",
+      "source": "The Neuron (citing The Information) · 20 Nov; Inception wind-down notice"
     },
     {
-      "id": "ai-designs-quantum-error-correction",
+      "id": "harvard-doe-ai-quantum-error-correction",
       "section": "Quantum",
-      "date": "19 Nov",
+      "date": "20 Nov",
       "concept": "qalgo",
-      "title": "AI is now designing quantum error-correction codes and decoders",
-      "plain": "An industry analysis this week laid out how AI tools are taking over a core quantum job: designing the codes that protect fragile qubits and the decoders that fix errors. Several groups report AI-found designs that beat the best human ones.",
-      "eng": "IBM's OpenEvolve uses an LLM inside an evolutionary loop to propose and test code designs. QC Design's Meridian searched over 100 fault-tolerance design tasks. On decoding, DeepMind's AlphaQubit is a transformer, and NVIDIA's Ising decoders are 3D convolutional networks; NVIDIA separately released a CUDA-Q decoder said to cut design-research compute from 12 weeks to 45 minutes.",
+      "title": "Harvard-led team gets $12M to have AI design quantum error correction",
+      "plain": "The US Department of Energy gave a Harvard-led team $12 million to use AI to design quantum error correction tailored to specific scientific problems. Partners include MIT, three national labs, QuEra, NVIDIA and Anthropic.",
+      "eng": "The project trains models to learn which errors matter for workloads in quantum simulation, materials, chemistry and nuclear science, then uses AI to design codes and decoders for them and tests them on neutral-atom hardware at Harvard, MIT and QuEra. It builds on an April preprint with a neural-network decoder and on work with QuEra and Anthropic using LLMs to find better quantum circuits.",
       "specs": [
         [
-          "IBM OpenEvolve",
-          "465 distinct code candidates"
+          "Award",
+          "$12M, DOE (one of 12 Phase II Genesis Mission awards)"
         ],
         [
-          "QC Design Meridian",
-          "14.6x median lower logical error"
+          "Principal investigator",
+          "Mikhail Lukin, Harvard"
         ],
         [
-          "NVIDIA Ising decoders",
-          "Up to 2.5x faster, 3x more accurate than PyMatching"
+          "Prior decoder result",
+          "Up to 17x lower error rate, thousands of times faster"
         ],
         [
-          "NVIDIA TCBP-JOBS",
-          "Up to 13,000x speedup"
+          "Partners",
+          "MIT, Cornell, Los Alamos, Berkeley Lab, Sandia, QuEra, NVIDIA, Anthropic"
         ]
       ],
-      "point": "The point: error correction, the main barrier to useful quantum computers, is becoming a search problem that AI is good at.",
-      "means": "Qubits make errors constantly, so a useful quantum computer spreads each logical qubit across many physical ones and a classical decoder works out which errors happened, in real time. Newer qLDPC codes need fewer qubits than the classic surface code but are harder to design and decode. AI search finds better codes, and neural decoders read the error signals faster and more accurately. A lower logical error rate means fewer physical qubits per useful qubit, which pulls the timeline forward.",
-      "industry": "This is where AI and quantum meet in practice: GPUs sit next to quantum chips to run decoders, and LLM search designs the codes. NVIDIA, IBM and Google are all positioning their AI stacks as part of the quantum toolchain.",
-      "you": "Decoding is a tight-latency streaming inference problem, the same skills as real-time ML serving on GPUs and FPGAs. If you want into quantum, CUDA-Q and open decoders like PyMatching are the practical entry points.",
+      "point": "The point: government money is now backing AI as the designer of quantum error correction, not just a helper.",
+      "means": "Qubits are noisy, so useful quantum computers need error correction: spreading one reliable 'logical' qubit across many physical ones and constantly decoding errors. Generic codes waste qubits protecting against errors that do not matter for a given calculation. This project lets AI tailor codes and decoders to each application, which could cut how many qubits are needed. On the same day, QuEra and UC collaborators described Qubrio, a multi-agent LLM compiler for neutral-atom machines.",
+      "industry": "Frontier AI labs are entering quantum through software: Anthropic and NVIDIA are named partners. If AI shortens the path to fault tolerance, timelines for useful chemistry and materials simulation move closer.",
+      "you": "Quantum error correction is becoming an ML problem with clear inputs, outputs and simulators, the kind of search task LLM agents are good at. If you work on optimisation or compilers, this is an area where those skills transfer.",
       "terms": [
         [
-          "Logical qubit",
-          "An error-protected qubit built from many physical qubits."
+          "Quantum error correction",
+          "Encoding one logical qubit across many physical qubits so errors can be detected and fixed."
         ],
         [
           "Decoder",
-          "Classical software that infers which errors occurred from measurement data."
+          "The classical algorithm that reads error signals and decides which correction to apply."
         ]
       ],
-      "why": "Figures come from each company's own claims, compiled by Quantum Computing Report, not one shared benchmark.",
-      "source": "Quantum Computing Report · 19 Nov; NVIDIA · 16 Nov"
+      "why": "Lukin compared quantum computers to a new kind of telescope for science.",
+      "source": "Harvard Gazette · 20 Nov; Quantum Computing Report · 20 Nov"
     },
     {
-      "id": "oregon-sues-openai-teen-safety",
-      "section": "Rules",
-      "date": "17 Nov",
+      "id": "kaiser-ehr-pregnancy-risk-models",
+      "section": "Medicine",
+      "date": "19 Nov",
       "concept": null,
-      "title": "Oregon sues OpenAI for $2.035B, says ChatGPT misled on teen safety",
-      "plain": "Oregon's attorney general sued OpenAI, saying it marketed ChatGPT as safe for kids while knowing its protections for minors were weak. The state asks for at least $2.035 billion and stronger safeguards.",
-      "eng": "The 53-page complaint is brought under Oregon's Unlawful Trade Practices Act, a consumer-protection law, and calls the violations willful. It says OpenAI often fails to confirm parental consent for 13–17-year-olds, that its 'ChatGPT for Teens' parent-linking can be bypassed, and that parents were not alerted when teens asked about suicide, self-harm or eating disorders.",
+      "title": "Kaiser models flag pregnancy risks from routine records by week 12",
+      "plain": "Kaiser Permanente and MIT researchers trained AI models on ordinary electronic health records to predict seven pregnancy complications. Gestational diabetes, gestational hypertension and preeclampsia could be flagged as early as 12 weeks.",
+      "eng": "The team built 49 models, one per complication at each of seven timepoints spaced six weeks apart, trained on 80% of records and tested on 20%. An external test on NIH's All of Us data showed lower performance, which improved after adapting the models with All of Us data. The study is in Communications Health.",
       "specs": [
         [
-          "Damages sought",
-          "At least $2.035 billion"
+          "Training data",
+          "442,760 pregnancies, KPNC, 2011–2021"
         ],
         [
-          "Complaint length",
-          "53 pages"
+          "Models",
+          "49 (7 complications x 7 timepoints)"
         ],
         [
-          "Legal basis",
-          "Oregon Unlawful Trade Practices Act"
+          "External test",
+          "6,105 pregnancies, All of Us"
         ],
         [
-          "Minimum user age",
-          "13, with parental consent"
+          "Best early signal",
+          "3 conditions flagged from 12 weeks"
         ]
       ],
-      "point": "The point: states are using consumer-protection law, not new AI statutes, to hold chatbot makers to their safety claims.",
-      "means": "With no federal AI law, state attorneys general are suing under existing rules against deceptive marketing. The argument is not that AI is illegal, but that OpenAI said its product was safe for teens when it was not. Eight states sued in October on similar grounds, so a pattern is forming. Attorney General Dan Rayfield said no single Oregon incident triggered the suit. OpenAI said it keeps building safeguards like parental controls and break reminders.",
-      "industry": "If these cases succeed, every consumer AI product's safety claims become legal exposure. That pushes companies toward verifiable age checks and documented safeguards, and supports calls for one national standard instead of 50 state ones.",
-      "you": "If you ship a consumer AI feature, treat marketing claims about safety like a spec you can be sued over. Log and test safeguards such as age gates and crisis-topic handling, and make sure they cannot be bypassed trivially.",
+      "point": "The point: routine data clinics already collect can spot some pregnancy risks months earlier, but models do not travel well between health systems.",
+      "means": "Complications like preeclampsia are often found late, when options are fewer. These models use only data entered in normal care, so no new tests are needed. Outcomes at birth, such as preterm birth and stillbirth, were harder to predict even at 24 weeks. The drop on outside data is a standard problem: a model learns the habits of one hospital system, and the researchers stress that it is not yet shown that earlier flags improve outcomes.",
+      "industry": "Health AI is moving from imaging into prediction from records, where data is plentiful. The study's external validation and adaptation step is the kind of evidence regulators and hospitals increasingly ask for before deployment.",
+      "you": "If you build models on data from one organisation, test them on a second source before claiming accuracy; expect a drop and plan for fine-tuning. Time-sliced models, one per point in a process, are a simple pattern for early warning.",
       "terms": [
         [
-          "Attorney general",
-          "A state's chief legal officer, who can sue companies on behalf of residents."
+          "EHR",
+          "Electronic health record: the digital chart of diagnoses, labs, medications and visits."
         ],
         [
-          "Unfair trade practices law",
-          "Consumer-protection law against deceptive or unfair business conduct."
+          "External validation",
+          "Testing a model on data from a different source than it was trained on."
         ]
       ],
-      "why": "Separately, Congress saw the ROOT CAUSE Act introduced on 18 Nov, which would create a board to investigate major AI and cyber failures.",
-      "source": "OPB · 17 Nov; TokenPost · 20 Nov"
+      "why": "Next steps include adding ultrasound, clinical notes and biomarkers.",
+      "source": "Kaiser Permanente Division of Research · 19 Nov"
+    },
+    {
+      "id": "trump-xi-military-ai-chip-rules",
+      "section": "Rules",
+      "date": "20 Nov",
+      "concept": null,
+      "title": "US and China agree humans must oversee military AI, says Bessent",
+      "plain": "Treasury Secretary Scott Bessent said Donald Trump and Xi Jinping agreed in Shenzhen that humans must oversee military decisions involving advanced AI. At the same time, the US further restricted Chinese access to advanced chips and remote computing.",
+      "eng": "A Commerce Department rule now requires licences for advanced AI chip shipments to Indonesia, Malaysia, Singapore, Thailand and Brazil, closing routes through overseas data centres. Separately, House records showed approvals for 879,868 Nvidia H200 and AMD MI325X chips for Chinese firms as of 11 May.",
+      "specs": [
+        [
+          "New licence countries",
+          "Indonesia, Malaysia, Singapore, Thailand, Brazil"
+        ],
+        [
+          "Chips approved for China",
+          "879,868 (as of 11 May 2026)"
+        ],
+        [
+          "Tencent approval",
+          "All 150,000 chips requested"
+        ],
+        [
+          "Moonshot AI deal cancelled",
+          "$150M Indonesia compute deal (The Information)"
+        ]
+      ],
+      "point": "The point: Washington and Beijing found narrow common ground on military AI while the US keeps tightening the compute squeeze.",
+      "means": "Keeping a human responsible for lethal decisions is the most widely shared principle in AI arms-control talks, so a US–China statement on it matters even if details are thin. The chip rule targets a loophole: Chinese firms renting high-end GPUs in Southeast Asian data centres. Moonshot AI reportedly dropped a $150 million Indonesia deal after the rule. Nvidia says it has stopped shipping H200s to China despite holding some licences.",
+      "industry": "Compute access is now foreign policy. Cloud providers in the affected countries face new compliance work, and Chinese labs are pushed further toward domestic chips. At APEC, Trump also said the US would not accept international regulation of superintelligence.",
+      "you": "If you deploy GPUs or sell compute in Southeast Asia or Brazil, check customer screening and licence requirements. If you depend on Chinese open-weight models, watch how compute limits affect their release pace.",
+      "terms": [
+        [
+          "Export licence",
+          "Government permission required to ship controlled technology to certain countries or buyers."
+        ],
+        [
+          "Human oversight",
+          "A rule that a person, not an AI system, makes or approves a decision."
+        ]
+      ],
+      "why": "Bessent spoke on Friday after the Trump–Xi meeting held alongside APEC in Shenzhen.",
+      "source": "Reuters (via Rio Rundown) · 21 Nov; Technology Org · 19 Nov; The Neuron · 20 Nov"
+    },
+    {
+      "id": "un-bridgetown-ai-safety-summit",
+      "section": "Rules",
+      "date": "21 Nov",
+      "concept": null,
+      "title": "UN opens Bridgetown AI safety summit as Trump rejects global rules",
+      "plain": "UN Secretary-General António Guterres and Barbados Prime Minister Mia Mottley are co-hosting a special AI safety summit in Bridgetown that opens on Monday. It aims to help countries build their own capacity to respond to AI risks.",
+      "eng": "UN envoy Amandeep Singh Gill described the proposed framework as a tool for nations to build safety infrastructure, such as incident response teams. The gap is large: high-income countries have 500 such teams, low-income countries six.",
+      "specs": [
+        [
+          "Incident response teams",
+          "500 in high-income vs 6 in low-income countries"
+        ],
+        [
+          "Leaders raising AI at UNGA",
+          "135, up from 3 in 2017"
+        ],
+        [
+          "Frontier-AI control call",
+          "Signed by 32 states and the European Commission"
+        ],
+        [
+          "Expected participants",
+          "150 (hybrid meeting)"
+        ]
+      ],
+      "point": "The point: global AI safety talks are shifting toward basic response capacity for poorer countries, just as the US rejects international rules.",
+      "means": "Most AI safety work happens in a few rich countries and labs, while harms like deepfakes, fraud and AI-assisted cyberattacks hit everywhere. Incident response teams detect and handle such events; without them, a country cannot even see the problem. The Bridgetown framework is voluntary and focuses on building that capacity. The same week, Trump said at APEC that the US would not let global initiatives stifle the technology.",
+      "industry": "AI governance is fragmenting: the EU regulates, the US prefers national control and export rules, and the UN pushes capacity building. Companies operating globally face a patchwork rather than one standard.",
+      "you": "If your product runs in many countries, expect different incident-reporting expectations by region. Keeping good logs and a clear incident process for AI failures will satisfy most of them.",
+      "terms": [
+        [
+          "Incident response team",
+          "A group that detects, investigates and coordinates response to security or AI-related incidents."
+        ],
+        [
+          "Frontier model",
+          "The most capable AI models at a given time, usually from the largest labs."
+        ]
+      ],
+      "why": "Seventeen states and ten AI developers endorsed a related call from a summit hosted by Emmanuel Macron.",
+      "source": "UN News (via Rio Rundown) · 21 Nov; Yahoo (via Rio Rundown) · 21 Nov"
+    },
+    {
+      "id": "runway-praxis-1-robotics",
+      "section": "Robots",
+      "date": "21 Nov",
+      "concept": "world",
+      "title": "Runway takes its video world models into robotics with Praxis-1",
+      "plain": "Runway, known for AI video tools, is extending its video and Praxis-1 world models to robotics. Its co-CEO says Praxis-1 leads the RoboLab leaderboard among open-weights robotics models.",
+      "eng": "A world model learns how scenes change over time from video, so it can predict what happens after an action; that prediction can train or plan for robots instead of costly real-world trials. Runway also acquired the Kinetix team as part of the push.",
+      "specs": [
+        [
+          "Annual recurring revenue",
+          "$200M in Sept 2026, doubled (Bloomberg)"
+        ],
+        [
+          "Leaderboard claim",
+          "Top open-weights model on RoboLab (Runway)"
+        ],
+        [
+          "Creator base",
+          "More than 60 million"
+        ],
+        [
+          "Enterprise reach",
+          "95% of the Fortune 100 use its tools"
+        ]
+      ],
+      "point": "The point: video-generation companies see robotics as the next market for the same world models.",
+      "means": "Robots learn slowly because real-world data is expensive to collect. A model that has watched huge amounts of video and can simulate what happens next gives robots a cheap practice ground. Runway, Google (Genie) and Nvidia are all pitching video world models this way. The leaderboard claim is Runway's own and limited to open-weights models.",
+      "industry": "Physical AI is attracting money because language models have used up most easy text data, while the physical world is largely untapped. Companies with strong video models have a head start on simulation for robots.",
+      "you": "If you work on robotics or simulation, open-weights world models are becoming a practical source of synthetic training data. Check how well their predictions hold up on your own hardware before relying on them.",
+      "terms": [
+        [
+          "World model",
+          "An AI model that predicts how an environment will change, often from video."
+        ],
+        [
+          "Open weights",
+          "Model parameters released for anyone to download and run."
+        ]
+      ],
+      "why": "Runway also launched a plug-in with OpenAI's ChatGPT.",
+      "source": "AI Magazine (via Rio Rundown) · 21 Nov"
+    },
+    {
+      "id": "deere-acquires-orchard-ai",
+      "section": "Robots",
+      "date": "20 Nov",
+      "concept": null,
+      "title": "John Deere buys Orchard AI for plant-by-plant crop vision",
+      "plain": "John Deere acquired Orchard AI (Orchard Robotics), a startup that uses cameras and image analysis to monitor crops plant by plant. Financial terms were not disclosed.",
+      "eng": "Orchard's cameras mount on farm machinery and use computer vision to measure crops as vehicles pass, giving growers plant-level data on things like fruit counts and health. Deere plans to add this crop intelligence to its machines for specialty-crop growers.",
+      "specs": [
+        [
+          "Founded",
+          "2022, by Charlie Wu"
+        ],
+        [
+          "Funding",
+          "More than $25M; $22M raised last year"
+        ],
+        [
+          "Staff",
+          "45, in San Francisco and Seattle"
+        ],
+        [
+          "Deal terms",
+          "Not disclosed"
+        ]
+      ],
+      "point": "The point: the biggest farm machinery maker is buying perception, turning tractors into data-collecting robots.",
+      "means": "Specialty crops like fruit and nuts are labour-heavy and hard to measure: growers often estimate yields by sampling a few trees. Cameras that see every plant as machines drive past give exact counts and early warnings. Deere already sells autonomy and precision spraying; adding plant-level vision lets machines decide per plant. The deal follows a week of physical-AI deals, including Rockwell's agreement to buy mobile-robot maker AGILOX.",
+      "industry": "Physical AI money is flowing into industries with clear, measurable returns, such as farming, logistics and inspection, not only humanoids. Incumbent equipment makers are buying startups to own the data layer.",
+      "you": "Computer vision at the edge (on moving vehicles, with poor connectivity) is a growing engineering niche. If you work on vision, these settings reward robust models that run on modest hardware.",
+      "terms": [
+        [
+          "Specialty crops",
+          "Fruits, nuts, vegetables and similar high-value crops, as opposed to grains."
+        ],
+        [
+          "Edge inference",
+          "Running AI models on the device itself rather than in the cloud."
+        ]
+      ],
+      "why": "Deere announced the deal on Thursday.",
+      "source": "John Deere (via RobotToday) · 20 Nov; GeekWire (via Rio Rundown) · 21 Nov"
     }
   ],
   "concepts": [
@@ -483,6 +475,10 @@
       "signals": [
         [
           "17 Nov",
+          "Replit Missions: budgeted agent swarms with an AI judge; 32-agent swarm up to 19x on a NumPy benchmark vs 4x for a single agent."
+        ],
+        [
+          "17 Nov",
           "Cognition's Devin Bots act as managers that split a goal across teams of Devin agents and run projects for days or weeks; usage up 10x in two weeks among early customers."
         ],
         [
@@ -500,10 +496,6 @@
         [
           "10 Nov",
           "AlphaProof Code: Gemini-powered agents write millions of lines of Lean to verify Signal's core crypto code in about four weeks."
-        ],
-        [
-          "10 Nov",
-          "LLM proposals plus an automated evaluator beat best known quantum circuits on 7 of 8 tasks."
         ]
       ]
     },
@@ -578,6 +570,10 @@
       "desc": "Models that learn physics and causality from observation and keep updating after training. The bridge from text to physical tasks.",
       "signals": [
         [
+          "21 Nov",
+          "Runway extends its Praxis-1 world model to robotics, claiming the top open-weights spot on the RoboLab leaderboard."
+        ],
+        [
           "18 Nov",
           "Genie 4 opens to Google AI Ultra subscribers and, a day later, the Gemini API: 720p, up to 24 fps, sessions up to about two minutes."
         ],
@@ -605,6 +601,10 @@
       "stage": 0,
       "desc": "Using LLM search to cut the gate and qubit cost of quantum algorithms, moving the date quantum becomes useful.",
       "signals": [
+        [
+          "20 Nov",
+          "DOE gives a Harvard-led team (with QuEra, NVIDIA, Anthropic) $12M to have AI design application-specific error-correction codes and decoders."
+        ],
         [
           "19 Nov",
           "AI now designs quantum error correction: IBM's LLM-guided OpenEvolve found 465 code candidates; QC Design reports a 14.6x median lower logical error rate."
