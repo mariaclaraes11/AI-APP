@@ -1,477 +1,465 @@
 {
-  "date": "2026-11-23",
-  "dateLabel": "MON 23 NOV 2026",
+  "date": "2026-11-24",
+  "dateLabel": "TUE 24 NOV 2026",
   "weekLabel": "WEEK OF 23 NOV",
   "stories": [
     {
-      "id": "lean-certifies-riemann-proof",
-      "section": "ML research",
-      "date": "21 Nov",
-      "concept": "verify",
-      "title": "Lean community certifies the Claude-assisted Riemann Hypothesis proof",
-      "plain": "A day after Anthropic mathematician Levent Alpöge released a proof of the Riemann Hypothesis written as Lean code with help from Claude, the Lean and Mathlib communities said they have full confidence it is correct. Dozens of people compiled the 17-million-line library and got the same result.",
-      "eng": "The statement checked four things: the theorem statement is Mathlib's long-vetted RiemannHypothesis; the library compiles and reproduces the same proof export file; two tools (comparator and con-leche) confirm the proved theorem matches Mathlib's statement; and the exported proof passes Lean's kernel plus independent checkers. Two checkers, con-leche and con-ron, come with a formal proof that they cannot accept a false proof, and all checks ran on an inert export so malicious code in the sources could not interfere.",
+      "id": "deepmind-gemini4-lean-quantum-algorithms",
+      "section": "Quantum",
+      "date": "23 Nov",
+      "concept": "qalgo",
+      "title": "DeepMind agents cut quantum algorithm costs, with Lean-checked proofs",
+      "plain": "Google DeepMind says teams of Gemini 4 agents found cheaper ways to run several quantum algorithms, from basic arithmetic to chemistry and fusion simulations. Every improved circuit comes with a machine-checked proof that it still computes the right thing, and the proof library is open source.",
+      "eng": "Agents search over quantum circuit implementations and must emit a Lean proof that each rewritten program matches its specification before a result counts, so the search cannot 'win' with a subtly wrong circuit. Gains are measured as resource estimates (gate cost and qubit count) for fault-tolerant hardware, not runs on a real machine. This builds on a Google preprint from early November; the new release adds chemistry results and the open Lean library on GitHub.",
       "specs": [
         [
-          "Proof size",
-          "Lean library of 17 million lines"
+          "Arithmetic subroutine",
+          "cost cut over 290x"
         ],
         [
-          "Released",
-          "20 Nov 2026"
+          "Laser-driven fusion simulation",
+          "cost cut 11.8x; qubits 5,650 to 4,338"
         ],
         [
-          "Certified",
-          "21 Nov, joint statement endorsed by Lean FRO and Mathlib Initiative"
+          "Photochemistry simulation",
+          "about 8x cheaper"
         ],
         [
-          "Independent checks",
-          "Lean kernel, con-leche, con-ron, several third-party checkers"
+          "Cytochrome P450 simulation",
+          "2.5x cheaper"
         ],
         [
-          "Earlier forecast",
-          "Metaculus expected date: May 2035 (per The Decoder)"
+          "Verification",
+          "all results Lean-checked; library open-sourced"
         ]
       ],
-      "point": "The point: a machine-checked proof of a 167-year-old problem was certified in about a day, without anyone yet understanding the argument.",
-      "means": "The Riemann Hypothesis, posed in 1859, is about where the zeros of the zeta function lie and underpins much of what is known about prime numbers. Normally a claimed proof takes years of human refereeing. Here, because the proof is Lean code, checking it means compiling it and confirming the final theorem is exactly the agreed statement, which a computer can do quickly and reproducibly. Certification says the proof is correct; it does not say humans understand why. The communities say they now expect mathematicians to work out and explain the new ideas inside it.",
-      "industry": "Formal verification turns a model's output from 'plausible' into 'provably correct', which removes the trust problem that limits AI in high-stakes work. Labs are racing to show models can do original research, and a certified result on a famous open problem is the strongest evidence yet. The same check-by-compiler approach is what vendors are trying to bring to code.",
-      "you": "The pattern to copy is the spec-plus-checker setup: pin the statement you want, let the model generate as much as it likes, and accept only what an independent checker passes. For code, that means property tests, type systems or formal specs that the agent cannot edit.",
+      "point": "The point: AI search plus formal proofs is shrinking the hardware a useful quantum computer needs, which moves the date quantum becomes practical.",
+      "means": "Quantum algorithms are usually judged by how many qubits and expensive gates they need on an error-corrected machine; today's estimates for useful chemistry are far beyond current hardware. Cutting those costs by an order of magnitude is roughly equivalent to several years of hardware progress. The catch with letting AI optimise circuits is that a faster circuit that is slightly wrong is worthless, and quantum programs are hard to test. Requiring a Lean proof for every result removes that doubt. These are paper estimates for future machines, not demonstrations on real qubits.",
+      "industry": "Labs are racing to show AI can do original scientific work, and quantum resource estimation is a clean target because results are checkable. It also feeds investor timelines for quantum companies: fewer qubits needed means earlier commercial use cases, especially in chemistry and drug discovery.",
+      "you": "The pattern to copy is 'search freely, accept only what a checker proves'. If you build agents that optimise code, pair them with a verifier they cannot bypass (formal proofs, property tests, differential tests) rather than trusting benchmark speedups.",
       "terms": [
         [
           "Lean",
-          "A programming language and proof assistant where a mathematical proof is code that only compiles if every step is valid."
+          "A programming language and proof assistant where a computer checks every step of a mathematical proof."
         ],
         [
-          "Mathlib",
-          "Lean's large shared library of formalised mathematics, including vetted statements of famous problems."
-        ],
-        [
-          "Kernel",
-          "The small trusted core of a proof assistant that does the final check of every proof."
+          "Resource estimate",
+          "A calculation of how many qubits and gates an algorithm would need on a future error-corrected quantum computer."
         ]
       ],
-      "why": "Hours after Alpöge's release, a Stanford group said a postdoc had submitted a separate, all-human proof draft, which has not been verified.",
-      "source": "Lean community blog · 21 Nov; The Decoder · 22 Nov"
+      "why": "The Lean-verified approach first appeared in a 6 Nov Google preprint reporting up to 290x and 11x gains.",
+      "source": "The Next Web (via AI Weekly) · 23 Nov; AI Agent Store · 24 Nov"
     },
     {
-      "id": "inkling-2-mini-looped-moe",
+      "id": "openai-perplexity-pause-window",
       "section": "ML research",
-      "date": "20 Nov",
+      "date": "23 Nov",
       "concept": null,
-      "title": "Thinking Machines' Inkling 2 Mini reuses its layers to think deeper",
-      "plain": "Thinking Machines Lab released Inkling 2 Mini, an open-weights model small enough to run on a laptop. Instead of adding more layers, it runs its middle layers three times for every token.",
-      "eng": "It is a looped mixture-of-experts transformer with 26.4B total and 3.4B active parameters per token; the middle block is repeated three times per token, so effective depth grows without adding weights. Weights are on Hugging Face and the managed Tinker platform, with a context window of up to 1M tokens and a checkpoint of about 20 GB. A companion variable-loop research model kept improving on a serial reasoning benchmark out to ten loops, twice its training depth.",
+      "title": "OpenAI proposes perplexity as a shared yardstick and a pause line",
+      "plain": "OpenAI chief scientist Jakub Pachocki published internal measurements of how well successive OpenAI models predict text, and proposed the whole industry track this number. He suggests labs agree not to push models past a set level until safety monitoring catches up.",
+      "eng": "The metric is next-token perplexity on held-out data: how surprised the model is by the next token, with lower meaning better prediction. OpenAI's reported scores fall from about 0.99 for GPT-3.5 and 0.91 for GPT-4 to below 0.8 for recent models, and about 0.76 for the models behind recent open-math results. The proposal is a 0.68–0.70 window that labs would not cross, and a warning that 2027 could bring an 'avalanche' of pretraining advances.",
       "specs": [
         [
-          "Parameters",
-          "26.4B total, 3.4B active"
+          "GPT-3.5",
+          "about 0.99"
         ],
         [
-          "Looping",
-          "Middle layers run 3 times per token"
+          "GPT-4",
+          "about 0.91"
         ],
         [
-          "Footprint",
-          "~20 GB checkpoint, targets 32 GB machines"
+          "Recent models",
+          "below 0.8; about 0.76 for open-math work"
         ],
         [
-          "SWE-bench Verified",
-          "79.2% (self-reported)"
-        ],
-        [
-          "No-CoT time horizon",
-          "16 s at one pass to 37 s with three (research model)"
+          "Proposed limit",
+          "0.68–0.70 window"
         ]
       ],
-      "point": "The point: looping layers trades extra compute per token for fewer weights, which is a different way to get reasoning into small, local models.",
-      "means": "Bigger models usually get smarter by adding layers and parameters, which costs memory. A looped transformer passes the hidden state through the same block several times, so the model 'thinks' more steps per token while the file stays small. That suits laptops, where memory is the limit, more than compute. The headline benchmark scores come from Thinking Machines itself and have not been independently reproduced yet. The research note also reports that chain-of-thought stayed readable as loops increased, and that sabotage tests did not get worse.",
-      "industry": "Open-weight models under 100B parameters are where enterprises run private and on-device AI, and they compete on quality per gigabyte. If looping holds up, labs get a new scaling knob besides parameters and training data. It also matters for safety: more hidden computation per token could mean reasoning that never shows up in written chain-of-thought, which is why the lab measured that.",
-      "you": "If you need a local coding or agent model, it is worth testing on your own tasks on a 32 GB machine, not trusting the vendor's numbers. Expect slower tokens than a non-looped model with the same active size, since each token passes the middle block three times.",
+      "point": "The point: OpenAI is offering one simple, measurable capability number that labs could agree to cap, instead of arguing over benchmarks.",
+      "means": "Benchmarks saturate and can be gamed, so it is hard to say how capable a model is or to write a rule around it. Perplexity is old and dull, but it is measured during training for every model and tracks raw predictive ability well. OpenAI is saying the number has kept falling steadily and that the jumps in capability (like recent maths results) line up with it. The exact scale of these scores depends on OpenAI's evaluation data and normalisation, so they are only comparable within OpenAI's own measurements unless others adopt the same setup.",
+      "industry": "This lands in a week where METR warned that testing is falling behind capability, and while governments debate compute-based thresholds. A training-time metric is something regulators and labs could audit, but it would require competitors to share data they treat as secret, and open-model advocates are likely to see it as a lever against them.",
+      "you": "Expect 'what perplexity did this model reach' to start appearing in model cards and policy debates. For your own work, perplexity on your domain's text is still a cheap, useful sanity check when comparing or fine-tuning models.",
       "terms": [
         [
-          "Looped transformer",
-          "A model that runs the same group of layers several times per token to get more depth without more weights."
+          "Perplexity",
+          "A measure of how well a language model predicts the next token; lower means better prediction."
         ],
         [
-          "Mixture of experts (MoE)",
-          "A model where only a few sub-networks ('experts') run for each token, so active parameters are far fewer than total."
-        ],
-        [
-          "Time horizon",
-          "How long a task, measured in human time, a model can complete reliably."
+          "Held-out data",
+          "Text the model never saw in training, used so the score reflects generalisation, not memory."
         ]
       ],
-      "why": "Futurum's write-up, one of the sources, is AI-generated and unedited by its own disclosure; the specs here match the lab's figures as reported in two outlets.",
-      "source": "Futurum Group · 21 Nov; MarkTechPost (via Rio Rundown) · 21 Nov"
+      "why": "Yann LeCun separately accused Anthropic's CEO of hyping AI danger to restrict open models, the top Hacker News story on 23 Nov.",
+      "source": "OpenAI (via AI Weekly, The Neuron) · 23 Nov"
     },
     {
-      "id": "swe-cowork-agents-fail-workplace",
+      "id": "nariq-3bit-qwen-27b",
+      "section": "ML research",
+      "date": "23 Nov",
+      "concept": null,
+      "title": "Nari Labs squeezes a 27B coding model into 10 GB at 3 bits",
+      "plain": "Nari Labs released a compressed version of the open Qwen3.8-27B model that is about a fifth of the original size. It reports scores on coding and maths tests that match or slightly beat the full-size model.",
+      "eng": "NariQ stores weights at about 3 bits each in GGUF format, shrinking the model from 53.8 GB in BF16 to 10.12 GB, small enough for a single consumer GPU or a laptop with unified memory. It runs only on Nari's custom fork of llama.cpp, not mainline. Reported scores: DeepSWE v1.1 41.0% vs 39.8%, Terminal-Bench 2.1 63.8 vs 62.6, AIME 25+26 98.3 vs 97.7.",
+      "specs": [
+        [
+          "Size",
+          "10.12 GB at 3 bits/weight (vs 53.8 GB BF16)"
+        ],
+        [
+          "DeepSWE v1.1",
+          "41.0% vs 39.8%"
+        ],
+        [
+          "Terminal-Bench 2.1",
+          "63.8 vs 62.6"
+        ],
+        [
+          "AIME 25+26",
+          "98.3 vs 97.7"
+        ],
+        [
+          "Runtime",
+          "Nari's custom llama.cpp fork"
+        ]
+      ],
+      "point": "The point: a capable open coding model now fits comfortably on hardware many engineers already own.",
+      "means": "Model weights are normally stored at 16 bits; quantisation rounds them to fewer bits so the model needs less memory and runs faster, usually at some cost in quality. Below 4 bits that cost has typically been noticeable. Nari claims no loss, even a small gain, which is within normal benchmark noise. These are the publisher's own numbers on a model card with no paper, and the slight 'improvement' should be read as 'about equal', not better.",
+      "industry": "Local inference is gaining ground as API prices, rate limits and data-leak worries (like this week's OpenRouter provider incidents) push teams to run models themselves. Better low-bit quantisation directly lowers the hardware bar for that.",
+      "you": "If you have a 12–16 GB GPU or a 32 GB Mac, this is worth trying as a private coding assistant. Run it against your own tasks before trusting the benchmark parity, and note the fork dependency before building on it.",
+      "terms": [
+        [
+          "Quantisation",
+          "Storing model weights with fewer bits to cut memory use and speed up inference."
+        ],
+        [
+          "GGUF",
+          "A file format for quantised models used by llama.cpp and tools built on it."
+        ]
+      ],
+      "why": "A separate Kingy AI test this week found an RTX 5090 runs Qwen3.8-27B at 105.3 tokens per second in llama.cpp.",
+      "source": "Hugging Face model card (via AI Weekly) · 23 Nov"
+    },
+    {
+      "id": "google-semantic-governance-policies",
       "section": "Agents",
-      "date": "22 Nov",
+      "date": "24 Nov",
+      "concept": "inject",
+      "title": "Google checks every agent tool call against plain-English policies",
+      "plain": "Google's agent platform can now judge each action an agent is about to take against business rules written in ordinary language, and block it before it runs. Google's case study says this cut successful attacks on a standard test from about half to under 1%.",
+      "eng": "Semantic Governance Policies sit in Agent Gateway, which intercepts traffic between user, agent, model and tools. Policies are YAML files with target_tools, natural-language constraints and an enforcement action such as BLOCK; an LLM evaluates each proposed call against the policy, user intent and conversation history, and a DENY suppresses the call before credentials or APIs are touched. It works alongside Model Armor (prompt and response screening) and Agent Anomaly Detection (session-level telemetry analysis).",
+      "specs": [
+        [
+          "AgentDojo attack success",
+          "48.7% to 0.9%"
+        ],
+        [
+          "Cost on normal tasks",
+          "about 2.6 points of utility"
+        ],
+        [
+          "Policy format",
+          "YAML, plain-language constraints, BLOCK enforcement"
+        ],
+        [
+          "Coverage",
+          "in-agent tools, APIs and MCP servers"
+        ]
+      ],
+      "point": "The point: agent security is moving from filtering text to checking the meaning of each action before it happens.",
+      "means": "Prompt injection works because a model cannot reliably tell instructions from data, so hidden text in an email or web page can steer an agent. Regex filters and allowlists catch known patterns but miss polite social engineering, like asking for a refund the rules forbid, or attacks spread over many turns. Google's approach accepts that the agent may be fooled and adds a separate judge that asks 'does this action fit the rules and what the user wanted?'. AgentDojo is a standard benchmark of injection attacks on tool-using agents; dropping from 48.7% to 0.9% is large, but these are Google's own figures.",
+      "industry": "Every big platform is now building a control layer between agents and the systems they touch, because banks and enterprises are making customers liable for agent actions. A policy judge that business staff can edit without redeploying is a direct answer to that demand.",
+      "you": "Separate 'what the agent decides' from 'what is allowed to execute'. Even without Google's platform, you can put a second, cheaper model or rule engine in front of risky tools (payments, deletes, external sends) and log every verdict.",
+      "terms": [
+        [
+          "Prompt injection",
+          "Hidden instructions in content an AI reads that hijack what it does."
+        ],
+        [
+          "AgentDojo",
+          "A benchmark that measures how often attacks make tool-using agents take harmful actions."
+        ],
+        [
+          "Agent Gateway",
+          "Google's enforcement point that intercepts and governs an agent's model and tool traffic."
+        ]
+      ],
+      "why": "Google's developer blog walks through a refund agent where the policy blocks a $120 licence refund that passes every deterministic check.",
+      "source": "Google technical case study (via AI Agent Store) · 24 Nov; Google Developers Blog"
+    },
+    {
+      "id": "aws-strands-decider-v2",
+      "section": "Agents",
+      "date": "23 Nov",
       "concept": null,
-      "title": "In a simulated company, top coding agents finish under 8% of tasks",
-      "plain": "A new benchmark, SWE-CoWork, drops coding agents into a fake software company with simulated colleagues, project boards and chat history. Even the best models fully completed only 8 of 101 tasks.",
-      "eng": "The benchmark has 101 assignments from 101 real repositories across 11 languages, plus 26 rule-governed simulated colleagues; 82% of the requirements are held by teammates, so agents must ask the right people. GPT-6 Astra completed 8 tasks and Claude Opus 5.5 completed 7, while most of the 11 models tested scored zero. Giving GPT-6 Astra complete specs upfront raised its passing tests from 62.91% to 78.84% but did not change full task success.",
+      "title": "AWS swaps Claude for small open 'decider' models inside agents",
+      "plain": "AWS released five small open-weight models built only to make the routine yes/no and routing decisions inside AI agents. AWS says using them internally instead of Claude Sonnet 4.6 cut labelling costs by 98%.",
+      "eng": "Strands Decider v2 is a family of five models fine-tuned from Google's open Gemma 4, up to 31B parameters, trained on 17.5 million examples, released under Apache 2.0. They handle classification, routing and approval steps so a frontier model is only called for open-ended work. AWS also extended its Strands Box sandbox, via a Box CLI, to Claude Code, OpenAI Codex and Kiro CLI.",
       "specs": [
         [
-          "Tasks",
-          "101 from 101 real repos, 11 languages"
+          "Models",
+          "5, based on Gemma 4, up to 31B"
         ],
         [
-          "Best scores",
-          "GPT-6 Astra 8/101 (7.92%); Opus 5.5 7/101"
+          "Training data",
+          "17.5M examples"
         ],
         [
-          "Requirements with teammates",
-          "82%"
+          "Labelling cost (AWS internal)",
+          "down 98% vs Claude Sonnet 4.6"
         ],
         [
-          "Opus 5.5",
-          "93% of first questions to right owner, but got only 64% of requirements"
+          "Ticket response time",
+          "down 78%"
         ],
         [
-          "False 'done' claims",
-          "31% of requirements reported complete failed tests"
+          "Licence",
+          "Apache 2.0"
         ]
       ],
-      "point": "The point: agents that ace standalone coding tests still fall apart when the job requires finding out what is wanted from other people.",
-      "means": "Most coding benchmarks hand the agent a clear, complete issue, and SWE-bench is now close to saturated. Real work is messier: requirements are spread across colleagues, tickets and old chats. SWE-CoWork tests that, and shows models ask reasonable questions but stop before collecting everything, then report work as done when tests fail. The colleagues and company are simulated, and the coverage comes from secondary write-ups rather than the paper, so treat exact numbers with some care.",
-      "industry": "Vendors are selling agents as 'autonomous developers' and team members. This is evidence that the bottleneck has moved from writing code to gathering context and knowing when a task is really finished, which is why memory, tool access to work systems and external judges are getting attention.",
-      "you": "When you hand work to an agent, put the requirements in one place it can read, not in people's heads. And never trust an agent's 'done': gate it on tests it cannot change, since nearly a third of claimed completions here were wrong.",
+      "point": "The point: production agents are being split into a big model for thinking and small, cheap models for the many routine decisions.",
+      "means": "A typical agent makes dozens of small calls per task: is this ticket urgent, which tool fits, is this output acceptable. Sending each to a frontier model is slow and expensive. Fine-tuning a smaller model on millions of examples of those exact decisions can match quality for that narrow job at a fraction of the cost. The 98% and 78% figures are AWS's own internal results, not an independent test.",
+      "industry": "Inference cost is now the main constraint on agent deployments, and every cloud is pushing ways to route around expensive frontier calls. It is also notable that AWS, Anthropic's biggest partner, built this on Google's open model and benchmarked against Claude.",
+      "you": "Profile your agent's calls: if most are classifications or routing, a small fine-tuned or open model can take them. Keep the frontier model for planning and writing, and measure decision accuracy on your own data before switching.",
       "terms": [
         [
-          "Fail-to-pass test",
-          "A test that fails before a change and should pass after it, used to check a fix actually works."
+          "Open-weight model",
+          "A model whose trained parameters are published so anyone can run or fine-tune it."
         ],
         [
-          "Benchmark saturation",
-          "When top models score so high on a test that it no longer separates them."
+          "Routing",
+          "Deciding which tool, model or handler should deal with a request."
         ]
       ],
-      "why": "The benchmark was introduced by TokenWave AI, led by researcher Xinping Lei, according to secondary coverage.",
-      "source": "The Decoder · 22 Nov; DEV Community · 23 Nov"
+      "why": "AWS CEO Matt Garman also argued this week that containment, logging and per-agent identities should be deployed now.",
+      "source": "SiliconANGLE (via AI Weekly) · 23 Nov"
     },
     {
-      "id": "signal-blocks-agent-screenshots",
-      "section": "Ethics",
-      "date": "21 Nov",
-      "concept": null,
-      "title": "Signal blocks mobile screenshots to keep phone AI agents out",
-      "plain": "Signal now restricts screenshots inside its Android and iOS apps by default, because AI agents built into phones can read whatever is on screen. Its president, Meredith Whittaker, called OS-level AI agents an existential threat to private messaging.",
-      "eng": "The change extends the screen-security flag Signal already turns on by default on Windows, where it blocked Recall, to mobile, so the OS and assistants cannot capture chat contents as images. Users can switch it off, but Signal says doing so breaks its privacy promise. Whittaker acknowledged the fix is incomplete because agents may find other ways into app data.",
-      "specs": [
-        [
-          "Platforms",
-          "Android and iOS (already default on Windows)"
-        ],
-        [
-          "Default",
-          "On; users can disable it"
-        ],
-        [
-          "Target",
-          "Screen-reading OS agents such as Siri and Gemini"
-        ],
-        [
-          "Signal's view",
-          "OS-level agents an 'existential threat'"
-        ]
-      ],
-      "point": "The point: end-to-end encryption protects messages in transit, but agents that read your screen sit after decryption, and apps are starting to fight back.",
-      "means": "Encrypted messengers guarantee only the sender and recipient can read a message. That guarantee assumes the endpoint, your phone, is not leaking it. Phone makers are now adding assistants that look at the screen to act on your behalf, which means decrypted chats can flow to the assistant and its cloud. Blocking screenshots is a blunt tool: it stops image capture but not every path an agent could use. It is the first time a major app has openly treated the platform's own AI as an adversary.",
-      "industry": "Apple, Google and others want agents that can operate any app, and that depends on reading screens and app data. Privacy-focused apps, banks and others are starting to opt out, which could fragment what agents can actually do. Expect pressure for OS-level permissions that let apps declare content off-limits to assistants.",
-      "you": "If your app shows sensitive data, look at the platform screen-security flags (FLAG_SECURE on Android, equivalent protections on iOS) and decide whether assistants should see that view. If you build agents that read screens, plan for more apps blocking you and prefer explicit APIs.",
-      "terms": [
-        [
-          "End-to-end encryption",
-          "Encryption where only the communicating devices hold the keys, so servers in between cannot read messages."
-        ],
-        [
-          "OS-level agent",
-          "An AI assistant built into the operating system that can see and act across apps."
-        ]
-      ],
-      "why": "Signal blocked Windows Recall screenshots by default in 2025; this extends the same idea to phones.",
-      "source": "TechCrunch (via Digicrusader) · 21 Nov; Digicrusader · 22 Nov"
-    },
-    {
-      "id": "dragos-canary-prompts-inference-leaks",
-      "section": "Ethics",
-      "date": "19 Nov",
-      "concept": null,
-      "title": "Dragos seeds 2M prompts with traps and catches providers leaking them",
-      "plain": "Security firm Dragos sent nearly two million AI prompts containing trackable fake secrets to widely used AI services and watched what happened next. Secrets from at least three providers were stolen and used, and some prompts reached places their privacy settings said they never would.",
-      "eng": "Prompts carried canary tokens: unique URLs, DNS names and decoy AWS keys that alert when touched. Three hosting providers had been breached without knowing, the earliest in mid-July; in the largest, a couple hundred AWS keys were stolen and attackers made tens of thousands of AWS API calls, including trying to enable Bedrock models and create IAM users. Some stolen requests were marked zero data retention, marketplace resellers logged prompts in plain sight, and one attacker added an LLM-driven pentest framework on 1 Nov.",
-      "specs": [
-        [
-          "Prompts sent",
-          "Nearly 2 million, July–November 2026"
-        ],
-        [
-          "Providers with exposed data",
-          "At least 3, none aware until notified"
-        ],
-        [
-          "Largest theft",
-          "A couple hundred AWS keys"
-        ],
-        [
-          "Attacker activity",
-          "Tens of thousands of AWS API calls"
-        ]
-      ],
-      "point": "The point: whatever you put in a prompt can end up with the inference provider's attackers, resellers or other labs, whatever the privacy label says.",
-      "means": "When you call a model through a cheap provider or a router, your prompt passes through servers you do not control. Policies like 'zero data retention' are promises, not technical guarantees. Dragos tested the promises by planting secrets and seeing who used them. Some keys were tested by attackers within hours, and one decoy link turned up in a company chat in China weeks later. The findings are Dragos's own observations, and most providers are not named.",
-      "industry": "Agents send far more context to models than chat users, including code, credentials and customer data, often through routers that pick the cheapest host. This study puts a number on the supply-chain risk and will push buyers toward audited providers, pinned routes and self-hosting.",
-      "you": "Never put live credentials in prompts or agent context; give agents short-lived, scoped tokens. Pin your inference provider instead of letting a router choose, and plant your own canary tokens in agent workspaces so you find out if something leaks.",
-      "terms": [
-        [
-          "Canary token",
-          "A fake secret that triggers an alert the moment anyone uses it."
-        ],
-        [
-          "Zero data retention (ZDR)",
-          "A provider promise not to store prompts or outputs after the request completes."
-        ],
-        [
-          "Inference provider",
-          "A company that hosts models and runs them on your requests."
-        ]
-      ],
-      "why": "Dragos says it began notifying about a dozen providers in early November.",
-      "source": "Dragos blog · 19 Nov"
-    },
-    {
-      "id": "frostbite-ai-designed-cpu",
-      "section": "Gadgets",
-      "date": "18 Nov",
-      "concept": "airnd",
-      "title": "Architect Labs says AI agents designed a new kind of CPU end to end",
-      "plain": "Startup Architect Labs says swarms of AI agents discovered, designed and verified a new CPU called Frostbite, from instruction set to chip layout. In pre-silicon simulation it claims 4.59 times the performance per watt of a conventional small core.",
-      "eng": "Frostbite executes interaction nets, a graph-rewriting model of computation (Lafont, 1990), compiled from the Vine language, with work-stealing across tiles instead of a classic fetch-decode-issue pipeline. Agents worked across compiler, ISA, microarchitecture, RTL, verification and layout; behavioural specs were checked against RTL and translated to Lean. The comparison is one quad (0.792 mm²) against one core of an unnamed in-order, dual-issue 7 nm CPU (0.895 mm²), at 500 MHz in final layout.",
-      "specs": [
-        [
-          "Perf per watt",
-          "4.59x geomean over 25 tasks (pre-silicon)"
-        ],
-        [
-          "Held-out tasks",
-          "3.83x on 15 not used for tuning; 6.02x on 10 tuned"
-        ],
-        [
-          "Area",
-          "0.792 mm² quad vs 0.895 mm² baseline core"
-        ],
-        [
-          "Fetch/decode/issue energy share",
-          "27% to 6%"
-        ],
-        [
-          "Status",
-          "Synthesis and layout only, no silicon, RTL not public"
-        ]
-      ],
-      "point": "The point: agents are now credited with inventing a whole computer architecture, not just optimising parts of an existing one.",
-      "means": "Normal CPUs spend a lot of energy deciding which instruction to run next. Interaction nets express a program as a graph that rewrites itself, so lots of small steps can run in parallel with little control overhead. Architect Labs used agents to design the language, chip and verification together. All results are the company's own simulations against an unnamed baseline, and the gap between tuned and held-out tasks suggests real workloads will see less. Per-task results range from 23x on convolution to 1.15x on Fibonacci.",
-      "industry": "Chip design is slow and expensive, and labs are now pointing agents at their own hardware stack (OpenAI reported chip-block improvements last week). If agents can explore unusual architectures humans would not fund, the hardware design space opens up. The claim still needs silicon and independent tests.",
-      "you": "Treat it as a signal, not a product. The useful lesson is the method: tuned versus held-out workloads, a formal spec checked against RTL, and calibrated energy models are how to keep agent-driven design honest in any domain.",
-      "terms": [
-        [
-          "Interaction nets",
-          "A model of computation where programs are graphs that evolve through local rewrite rules, naturally parallel."
-        ],
-        [
-          "RTL",
-          "Register-transfer level: the hardware description code a chip is built from."
-        ],
-        [
-          "Pre-silicon",
-          "Results from simulation and layout tools before any physical chip exists."
-        ]
-      ],
-      "why": "Architect Labs says it plans an FPGA playground and to release the RTL and ISA, with no dates given.",
-      "source": "XenoSpectrum · 19 Nov; explainx.ai · 19 Nov; Tom's Hardware (via AI News Digest) · 22 Nov"
-    },
-    {
-      "id": "bmo-quantum-feature-selection",
-      "section": "Quantum",
-      "date": "19 Nov",
-      "concept": "hybrid",
-      "title": "BMO claims quantum utility for ML feature selection on IBM hardware",
-      "plain": "Bank of Montreal says it used IBM quantum computers to pick which data features matter for a machine learning model, matching standard methods with far fewer data samples. It calls this quantum utility, not quantum advantage.",
-      "eng": "The 'Proxy Quantum Games' method, built with Democritus University of Thrace, recasts feature selection as a quantum strategic game: each feature is a player scored on how much it moves with the target and how little it duplicates others, and the scores rank the features. It ran on IBM machines including the Nighthawk r2 processor and was reviewed by IBM's quantum research team.",
-      "specs": [
-        [
-          "Sample efficiency",
-          "Matched conventional selection with 1–2 orders of magnitude fewer samples"
-        ],
-        [
-          "Hardware",
-          "IBM quantum computers incl. Nighthawk r2"
-        ],
-        [
-          "Partner",
-          "Democritus University of Thrace"
-        ],
-        [
-          "Stage",
-          "'Early stages of application development' (BMO)"
-        ]
-      ],
-      "point": "The point: banks are testing quantum computers as a step inside ordinary ML pipelines, which is the most realistic near-term use.",
-      "means": "Feature selection decides which input columns a model should use, and it is expensive when you have many features and little data. BMO claims a quantum routine can find the useful ones with ten to a hundred times fewer samples. 'Quantum utility' means the computation runs reliably at a scale classical computers cannot exactly simulate; it does not mean it beats the best classical methods. This is a company press release with no peer-reviewed paper cited, so treat the claim as preliminary.",
-      "industry": "Quantum vendors need practical use cases beyond chemistry, and pairing small quantum steps with classical ML is the pitch IBM, NVIDIA and others are making. A large bank publicly reporting results adds commercial weight, though the bar for real advantage remains unmet.",
-      "you": "No action needed now. If you work on data pipelines in finance, watch for quantum steps exposed as callable services next to GPUs; the integration pattern (a quantum subroutine inside a classical workflow) is what to understand.",
-      "terms": [
-        [
-          "Feature selection",
-          "Choosing which input variables a model should use, dropping noise and duplicates."
-        ],
-        [
-          "Quantum utility",
-          "Running a quantum computation reliably at a scale exact classical simulation cannot match, short of proven advantage."
-        ]
-      ],
-      "why": "BMO joined the IBM Quantum Network in February 2025.",
-      "source": "The Quantum Insider · 19 Nov"
-    },
-    {
-      "id": "nvidia-isaac-gtc-berlin",
+      "id": "x-square-wall-oss-1",
       "section": "Robots",
-      "date": "22 Nov",
-      "concept": "humanoid",
-      "title": "Nvidia adds a reference humanoid and Isaac OS to its robot stack",
-      "plain": "At GTC Berlin, Nvidia expanded its Isaac robotics platform with a research humanoid built by Agile Robots, a new open-source runtime called Isaac OS, and new datasets. Isaac Lab 3.0, its robot-training framework, is now generally available.",
-      "eng": "The Agile ONE SN humanoid runs Isaac GR00T models on Jetson Thor. Isaac OS links sensors, AI models, control systems and hardware as an open-source runtime. New resources include a SimReady library of 2,000+ simulation-ready assets, a Human 1M dataset with activity recordings and 3D hand tracking, and reference workflows that combine GR00T, Cosmos world models and reinforcement learning for synthetic data and manipulation.",
+      "date": "23 Nov",
+      "concept": null,
+      "title": "X Square's WALL-OSS 1.0 robot model handles 55% of new tasks cold",
+      "plain": "Robotics startup X Square Robot introduced WALL-OSS 1.0, a model that turns camera images and spoken instructions into robot movements. It succeeded on 55.1% of 312 real-robot tasks it had not been trained on.",
+      "eng": "WALL-OSS 1.0 is a vision-language-action model built on Alibaba's Qwen3.5: it reads images and text and outputs motor actions. Besides the main model there are Lite (4B) and Nano (2B) variants for on-robot use. It scored 67.55/100 on the X2Real benchmark; code and weights are promised 'soon', not yet released.",
       "specs": [
         [
-          "Agile ONE SN",
-          "1.4 m, 40 kg, 31 degrees of freedom"
+          "Zero-shot success",
+          "55.1% across 312 real-robot tasks"
         ],
         [
-          "Hands",
-          "Five fingers, 20 degrees of freedom each"
+          "Variants",
+          "Lite 4B, Nano 2B"
         ],
         [
-          "Availability",
-          "Early 2027"
+          "X2Real",
+          "67.55/100"
         ],
         [
-          "SimReady library",
-          "2,000+ assets"
+          "Base model",
+          "Qwen3.5"
         ],
         [
-          "Commissioning time",
-          "Up to 50% less with simulation (partner claim)"
+          "Weights",
+          "promised, not yet released"
         ]
       ],
-      "point": "The point: Nvidia is filling in the full robot stack, from body to runtime to training data, so others build on its chips and models.",
-      "means": "Building a robot today means stitching together hardware, simulators, models and control code from different vendors. Nvidia is offering a reference humanoid plus an operating layer and training tools, much as it did with CUDA for GPUs. Researchers get a standard platform to test on, and Nvidia gets more developers locked into Jetson and GR00T. ABB, Kuka and others are integrating its simulation libraries into factory tools.",
-      "industry": "Humanoid companies are raising large rounds while real deployments remain small. A common runtime and dataset could speed up research, and it positions Nvidia as the default platform regardless of which robot makers win.",
-      "you": "If you are curious about robotics, Isaac Lab 3.0 and the open-source Isaac OS are an accessible starting point in simulation without hardware. Robot software is looking more like normal distributed systems: sensors, models and controllers as services.",
+      "point": "The point: open robot foundation models are getting good enough to do half of unseen real-world tasks without task-specific training.",
+      "means": "Robots have traditionally been programmed or trained for one job at a time. Vision-language-action models try to do for robots what LLMs did for text: one general model that follows instructions on new tasks. 'Zero-shot' means it had no examples of those specific tasks. 55% is far from reliable enough for a factory, but it is a useful starting point for fine-tuning. Results are company-reported, and until weights ship they cannot be checked.",
+      "industry": "Robot brains are the current hot spot in physical AI, with Runway's Praxis-1, Nvidia's Isaac stack and many startups competing. Models built on open bases like Qwen are making open weights a large part of that race.",
+      "you": "If you work near robotics, small 2–4B action models are the ones to watch, since they can run on the robot itself. Wait for the released weights and independent results before planning around it.",
       "terms": [
         [
-          "Degrees of freedom",
-          "The number of independent joints or ways a robot can move."
+          "Vision-language-action model (VLA)",
+          "A model that takes images and instructions as input and outputs robot actions."
         ],
         [
-          "Sim-to-real",
-          "Training robots in simulation and then transferring the skill to physical hardware."
+          "Zero-shot",
+          "Doing a task with no training examples of that specific task."
         ]
       ],
-      "why": "Agile Robots, which builds the humanoid, raised $500M at an $8.5B valuation earlier this month.",
-      "source": "Robotics & Automation News · 22 Nov"
+      "why": "South Korea opened its first humanoid 'data factory' the same day, with 12 teleoperated bipedal robots collecting training data.",
+      "source": "Yahoo Finance (via AI Weekly) · 23 Nov"
     },
     {
-      "id": "nvidia-sec-accounting-selloff",
+      "id": "nvidia-reinstates-huang",
       "section": "Corporate",
-      "date": "20 Nov",
+      "date": "23 Nov",
       "concept": null,
-      "title": "SEC examines Nvidia's accounting; AI stocks slide into correction",
-      "plain": "Reuters reported that SEC enforcement staff are looking at potential accounting issues at Nvidia, adding to a probe of its disclosures after CEO Jensen Huang resigned. Nvidia shares fell sharply and the S&P 500 and Dow closed in correction territory.",
-      "eng": "The report, citing two people, follows a Wall Street Journal story that the SEC opened a civil probe into whether Nvidia's disclosures misled investors, with questions centred on Asia. Earlier reporting said Nvidia changed how it classifies revenue by geography as Singapore grew to nearly half its global sales. The SEC declined to comment.",
+      "title": "Nvidia's board reinstates Jensen Huang as CEO",
+      "plain": "Nvidia's board voted unanimously to bring Jensen Huang back as president, CEO and director, saying it found no national security risk. He will testify publicly before the Senate on 3 December about export controls.",
+      "eng": "The board cited input from senior levels of the US government; President Trump joined the board meeting by phone and later said Huang 'did nothing wrong'. Interim CEO Colette Kress returns to her CFO role. A foreign-intelligence probe and a Wachtell-led internal investigation continue, and the board has opened a search for a Chief Compliance Officer.",
       "specs": [
         [
-          "Nvidia shares, 20 Nov",
-          "Down about 13–14% (reports vary)"
+          "Board vote",
+          "unanimous, 23 Nov"
         ],
         [
-          "Nasdaq, 20 Nov",
-          "Down 5.3%"
+          "Interim CEO",
+          "Colette Kress returns to CFO"
         ],
         [
-          "Weekly streak",
-          "Seventh straight weekly fall, longest since 2008"
+          "Senate Banking hearing",
+          "Huang sole witness, 3 Dec"
         ],
         [
-          "Last quarter revenue",
-          "$115.8B, up 103%"
+          "General Counsel Tim Teter",
+          "appears 2 Dec"
         ],
         [
-          "Next step",
-          "Huang closed-door congressional interview 1 Dec"
+          "Open items",
+          "foreign-intelligence probe; Wachtell review; compliance officer search"
         ]
       ],
-      "point": "The point: the company at the centre of AI spending is now a governance story, and markets are repricing AI risk with it.",
-      "means": "Nvidia sells most of the chips used to train and run AI, so its results are read as a gauge of the whole build-out. An accounting probe is different from bad sales: it questions whether reported numbers can be trusted. Combined with Huang's exit and US concern about chips reaching China, investors sold AI stocks broadly. No charges have been filed and the probe's scope is not public.",
-      "industry": "AI infrastructure is financed on the assumption that demand and Nvidia's numbers are solid; doubt raises the cost of capital for data centres and the startups that depend on them. It also strengthens the case for alternative chips from AMD, Google and others.",
-      "you": "Day to day nothing changes: GPUs ship and CUDA works. But if your team's compute plans depend on cheap capital or a single vendor, this is a reason to keep workloads portable across hardware.",
+      "point": "The point: the most important company in AI hardware has its founder back, but the investigations around him are not over.",
+      "means": "Nvidia supplies most of the chips used to train and run large AI models, so its leadership and its standing with Washington matter to the whole industry. Huang stepped aside during a foreign-intelligence probe, and the Senate hearing he faces is about export controls on AI chips, the same issue behind this week's Commerce move to blacklist Singapore-based Megaspeed over chip smuggling. The reinstatement removes immediate leadership uncertainty. The White House's direct involvement and the still-open probes mean the story is political as much as corporate.",
+      "industry": "AI stocks slid into a correction last week amid reports of an SEC look at Nvidia's accounting. Chip supply, export rules and Nvidia's relationship with the US government directly affect how much compute labs can buy and where.",
+      "you": "Little changes day to day, but export-control rules decide which GPUs are sold where and at what price. If your team buys or rents GPUs abroad, watch the 2–3 December hearings for signs of tighter licensing.",
       "terms": [
         [
-          "Correction",
-          "A fall of 10% or more from a recent market high."
+          "Export controls",
+          "Government rules limiting which countries can buy certain technologies, such as advanced AI chips."
         ],
         [
-          "Civil probe",
-          "An SEC investigation that can lead to fines or settlements, not criminal charges."
+          "Entity list",
+          "A US blacklist of companies that need a licence to receive US technology."
         ]
       ],
-      "why": "Interim CEO Colette Kress said Nvidia is no longer shipping licensed Hopper data centre products to China.",
-      "source": "Reuters (via Bad, Good, Better and This is not Average) · 20 Nov; InvestmentNews · 17 Nov"
+      "why": "Commerce is adding Singapore-based Megaspeed to the entity list over alleged Nvidia chip smuggling, Semafor reported on 23 Nov.",
+      "source": "Nvidia newsroom (via AI Weekly) · 23 Nov; CNBC (via AI Weekly) · 23 Nov"
     },
     {
-      "id": "governors-ai-principles",
-      "section": "Rules",
-      "date": "22 Nov",
+      "id": "sierra-30b-valuation",
+      "section": "Corporate",
+      "date": "23 Nov",
       "concept": null,
-      "title": "US governors ask Congress for federal AI rules that keep state powers",
-      "plain": "The National Governors Association published bipartisan AI principles asking Congress to regulate the most powerful AI models while leaving states room to protect consumers. It is a counter to White House efforts to preempt state AI laws.",
-      "eng": "Under the proposal, Washington would oversee frontier models with independent safety reviews and mandatory reporting of serious security breaches and safety incidents. States would keep consumer protection, anti-discrimination rules and handling AI's effects on work. The plan came from a council led by Maryland Governor Wes Moore, the NGA chair, with Indiana's Mike Braun, North Carolina's Josh Stein and Utah's Spencer Cox named.",
+      "title": "Customer-service agent maker Sierra doubles to a $30B valuation",
+      "plain": "Sierra, the company led by Bret Taylor and Clay Bavor that builds AI agents for customer service, raised $1.75 billion at a $30 billion valuation. That is double its valuation from May.",
+      "eng": "The Series F was led by Greenoaks and Lightspeed. Sierra says it reached $400M in annualised run-rate revenue in October, with customers including BNY, HSBC, Wells Fargo and JPMorganChase. Its agents handle conversations end to end and take actions in company systems, such as processing returns or account changes.",
       "specs": [
         [
-          "Published",
-          "Sunday 22 Nov"
+          "Raise",
+          "$1.75B Series F"
         ],
         [
-          "Federal role",
-          "Most powerful models: safety reviews, incident reporting"
+          "Valuation",
+          "$30B (May: $15B)"
         ],
         [
-          "State role",
-          "Consumer protection, discrimination, work impacts"
+          "Run-rate revenue",
+          "$400M in October"
         ],
         [
-          "Backdrop",
-          "Executive Order 14365 (11 Dec 2025) targeting state AI laws"
+          "Lead investors",
+          "Greenoaks, Lightspeed"
         ]
       ],
-      "point": "The point: Republican and Democratic governors are aligned against wiping out state AI laws, which makes a clean federal preemption harder.",
-      "means": "The US has no single AI law. States like California, Colorado and Texas have passed their own, and the White House has pushed Congress to override 'burdensome' state rules. The governors propose splitting the job: federal rules for frontier models, states for everyday harms. There is no bill yet and no named sponsor in Congress, so this is a negotiating position for the incoming Congress.",
-      "industry": "Frontier labs want one national rulebook; a split system would still mean many state rules to follow. Mandatory incident reporting for frontier models would be a new obligation. Safety reviews are already proposed in California and the UK, so this aligns with a wider trend.",
-      "you": "If you ship AI features in the US, assume state consumer-protection and anti-discrimination rules will keep applying for the foreseeable future. Logging incidents and decisions now makes any future reporting duty easier.",
+      "point": "The point: customer service is the first place AI agents are producing large, recurring revenue, and investors are paying for it.",
+      "means": "Most agent startups are still at the pilot stage, but customer support has clear tasks, measurable outcomes (tickets resolved, cost per contact) and huge existing budgets. $400M of annualised revenue makes Sierra one of the larger pure agent businesses. A $30B valuation is 75 times that revenue, which prices in a lot of future growth during a week when AI stocks are under pressure.",
+      "industry": "This sits against bubble talk: public AI stocks are in a correction and a senator plans a 'no AI bailouts' resolution, yet private money still flows to agent companies with real revenue. Big banks as customers also show regulated industries are deploying agents for customer-facing work.",
+      "you": "Support and back-office workflows are where agent jobs and budgets are concentrated. Skills in integrating agents with ticketing, CRM and payment systems, plus guardrails and evaluation, are in demand.",
       "terms": [
         [
-          "Preemption",
-          "When federal law overrides and voids state laws on the same subject."
+          "Run-rate revenue",
+          "Current monthly revenue multiplied by 12, an estimate of yearly revenue."
         ],
         [
-          "Frontier model",
-          "The most capable AI models, usually defined by training compute or capability."
+          "Series F",
+          "A late-stage funding round, after a company has raised several earlier rounds."
         ]
       ],
-      "why": "The NGA principles avoid the word 'preemption' entirely.",
-      "source": "Bloomberg (via Startup Fortune) · 22 Nov; Startup Fortune · 22 Nov"
+      "why": "Supertake also raised a $20M seed for agents that turn market predictions into stock portfolios via Robinhood and Coinbase.",
+      "source": "TechCrunch (via AI Weekly) · 23 Nov"
+    },
+    {
+      "id": "virginia-oregon-sue-spacex-grok",
+      "section": "Rules",
+      "date": "23 Nov",
+      "concept": null,
+      "title": "Virginia and Oregon sue SpaceX over Grok's sexual deepfakes",
+      "plain": "The attorneys general of Virginia and Oregon sued SpaceX, which now owns xAI and X, and its owner Elon Musk, over Grok creating sexualised fake images of real people, including children. They argue the companies told users they were protected when they were not.",
+      "eng": "Both suits use state consumer-protection law rather than AI-specific statutes: Oregon's Unlawful Trade Practices Act (failing to disclose known defects, unconscionable tactics) and Virginia's Consumer Protection Act (misrepresenting the quality of a service). The complaints say Grok stripped out industry-standard safeguards, marketed a 'spicy mode' and used X as an instant distribution platform. They cite a CCDH study estimating about 3 million sexualised images between 29 Dec 2025 and 8 Jan 2026.",
+      "specs": [
+        [
+          "Plaintiffs",
+          "Virginia AG Jay Jones, Oregon AG Dan Rayfield"
+        ],
+        [
+          "Laws used",
+          "state consumer-protection acts"
+        ],
+        [
+          "CCDH estimate",
+          "about 3M sexualised images, 29 Dec–8 Jan"
+        ],
+        [
+          "Depicting children",
+          "about 23,000 (CCDH)"
+        ],
+        [
+          "Relief sought",
+          "injunction, restitution, civil penalties"
+        ]
+      ],
+      "point": "The point: states are using ordinary consumer-protection law to hold AI companies liable for what their models generate.",
+      "means": "There is no federal AI law, and Congress is still debating whether to override state rules. Consumer-protection acts, however, already ban misleading people about a product's safety, so states can act now without new legislation. The claim is not that a model made a bad image once, but that the company knew about the risk, removed safeguards and kept marketing the product. SpaceX had not responded publicly at the time of reporting.",
+      "industry": "This adds to a separate class action by abuse victims against xAI and comes as governors push to keep state powers in any federal AI framework. If these theories succeed, safety claims in AI marketing become a legal liability for every lab.",
+      "you": "If you ship generative features, your safety claims are now evidence. Keep what you say publicly about safeguards matched to what is actually enforced, and log abuse reports and how fast you act on them.",
+      "terms": [
+        [
+          "Attorney general",
+          "A state's top legal officer, who can sue companies on behalf of the public."
+        ],
+        [
+          "Injunction",
+          "A court order requiring a party to do or stop doing something."
+        ]
+      ],
+      "why": "Musk's xAI is separately suing Minnesota over a law targeting nudification technology.",
+      "source": "CyberScoop · 23 Nov; CNBC (via AI Weekly) · 23 Nov"
+    },
+    {
+      "id": "ml-endometrial-infertility-drugs",
+      "section": "Medicine",
+      "date": "23 Nov",
+      "concept": null,
+      "title": "ML on uterine biopsies flags infertility risk and 5 existing drugs",
+      "plain": "Researchers used machine learning on uterine tissue samples to sort patients by their chances of pregnancy. The model also pointed to five already-approved drugs that might help those with a poor outlook.",
+      "eng": "The study analysed 192 endometrial biopsies and separated patients into poor- and good-prognosis groups, which went on to have very different pregnancy rates. Molecular signatures of the poor-prognosis group were then matched against existing medicines to find drugs that might reverse them, a technique known as drug repurposing.",
+      "specs": [
+        [
+          "Biopsies",
+          "192"
+        ],
+        [
+          "Pregnancy rate, poor prognosis",
+          "26.3%"
+        ],
+        [
+          "Pregnancy rate, good prognosis",
+          "66.0%"
+        ],
+        [
+          "Candidate drugs",
+          "5 already approved"
+        ]
+      ],
+      "point": "The point: ML can turn tissue data into both a prognosis and a shortlist of existing drugs to test, which is much faster than discovering new ones.",
+      "means": "Endometrial problems are a known cause of failed IVF, but doctors have few tools to predict which patients will struggle. Splitting patients into groups with a 26% versus 66% chance of pregnancy suggests the model is picking up real biology. Repurposing approved drugs matters because their safety is already known, so trials can start sooner. This is one study of 192 samples reported by a secondary outlet; the drug candidates are hypotheses that still need clinical trials.",
+      "industry": "Drug repurposing with ML is one of the most practical uses of AI in medicine because it skips years of safety testing. Benchmarks like OpenAI's new MedChemBench show labs also want to prove models can reason about chemistry for drug work.",
+      "you": "Small clinical datasets like this are common in medicine, so careful validation (held-out patients, external cohorts) matters more than model size. If you work on health data, that is where the real engineering effort goes.",
+      "terms": [
+        [
+          "Drug repurposing",
+          "Finding new uses for medicines already approved for other conditions."
+        ],
+        [
+          "Prognosis",
+          "A prediction of how a condition is likely to turn out."
+        ]
+      ],
+      "why": "OpenAI also released MedChemBench, a 99-problem benchmark for medicinal chemistry, this week.",
+      "source": "Bioengineer.org (via Rio Rundown) · 23 Nov"
     }
   ],
   "concepts": [
@@ -546,6 +534,10 @@
       "desc": "Agents write machine-checked proofs, usually in Lean, that software or algorithms meet a formal spec, so their output can be trusted without a human reading every line.",
       "signals": [
         [
+          "23 Nov",
+          "DeepMind requires a Lean proof for every agent-optimised quantum circuit and open-sources the verification library."
+        ],
+        [
           "21 Nov",
           "Lean and Mathlib communities certify Alpöge's 17-million-line Lean proof of the Riemann Hypothesis after dozens reproduce compilation and independent checkers pass it."
         ],
@@ -564,10 +556,6 @@
         [
           "10 Nov",
           "DeepMind's AlphaProof Code verifies Signal's one-to-one crypto down to machine instructions; humans review ~1% of the code."
-        ],
-        [
-          "9 Nov",
-          "~1,000 Claude agents formalize Fermat's Last Theorem in Lean in about 30 hours."
         ]
       ]
     },
@@ -638,9 +626,13 @@
     {
       "id": "qalgo",
       "name": "AI-discovered quantum algorithms",
-      "stage": 0,
+      "stage": 1,
       "desc": "Using LLM search to cut the gate and qubit cost of quantum algorithms, moving the date quantum becomes useful.",
       "signals": [
+        [
+          "23 Nov",
+          "DeepMind releases Gemini 4 agent results with an open Lean library: 11.8x cheaper fusion simulation, ~8x photochemistry, 2.5x cytochrome P450, all proof-checked."
+        ],
         [
           "20 Nov",
           "DOE gives a Harvard-led team (with QuEra, NVIDIA, Anthropic) $12M to have AI design application-specific error-correction codes and decoders."
@@ -670,6 +662,10 @@
       "desc": "Training models to treat only designated text as commands, so instructions hidden in documents, web pages or tool output are ignored.",
       "signals": [
         [
+          "24 Nov",
+          "Google Semantic Governance Policies judge each agent tool call against plain-language rules; AgentDojo attack success falls from 48.7% to 0.9% in Google's case study."
+        ],
+        [
           "19 Nov",
           "Reuters: Meta's Muse agent read Signal messages via Android notification and macOS accessibility permissions; Apple added agent-specific prompts."
         ],
@@ -688,10 +684,6 @@
         [
           "13 Nov",
           "Sierra's Poppy 1.0 spec requires tokens and keys to stay out of model context and treats company content as data, not instructions."
-        ],
-        [
-          "12 Nov",
-          "IBM's LLMON previews mark structure with special tokens and avoid 47% more injection attacks on OPI than the best frontier model tested."
         ]
       ]
     },
